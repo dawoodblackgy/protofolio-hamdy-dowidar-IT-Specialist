@@ -1,0 +1,1222 @@
+
+       <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Hamdy Dowidar | Creative Solutions Expert</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #693EFF;
+            --secondary-color: #4D2DB7;
+            --accent-color: #FF6B6B;
+            --bg-color: #F8F9FA;
+            --text-color: #333333;
+            --light-text: #6C757D;
+            --header-bg: rgba(255, 255, 255, 0.9);
+            --card-bg: #FFFFFF;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #7d5fff;
+            --secondary-color: #5d3fd3;
+            --accent-color: #FF8E8E;
+            --bg-color: #121212;
+            --text-color: #F0F0F0;
+            --light-text: #A0A0A0;
+            --header-bg: rgba(30, 30, 30, 0.9);
+            --card-bg: #1E1E1E;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: var(--transition);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        p {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--light-text);
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--header-bg);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            font-size: 1.2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-link {
+            position: relative;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: var(--transition);
+            padding: 5px 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: 30px;
+        }
+
+        #darkModeToggle, #languageToggle {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        #darkModeToggle {
+            color: var(--text-color);
+            font-size: 1.2rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+        }
+
+        #darkModeToggle:hover {
+            background: rgba(105, 62, 255, 0.1);
+        }
+
+        #languageToggle {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        #languageToggle:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        .element-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary-color);
+            top: 10%;
+            left: 10%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .element-2 {
+            width: 200px;
+            height: 200px;
+            background: var(--accent-color);
+            bottom: 10%;
+            right: 10%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        .element-3 {
+            width: 150px;
+            height: 150px;
+            background: var(--secondary-color);
+            top: 50%;
+            left: 5%;
+            animation: float 12s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        /* About Container */
+        .about-container {
+            padding: 120px 5% 80px;
+            position: relative;
+        }
+
+        /* Hero Section */
+        .about-hero {
+            text-align: center;
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .about-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-subtitle {
+            font-size: 1.3rem;
+            color: var(--light-text);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Sections */
+        .about-section {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .about-section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .section-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            background: rgba(105, 62, 255, 0.1);
+            padding: 15px;
+            border-radius: 15px;
+            transition: var(--transition);
+        }
+
+        .about-section:hover .section-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--text-color);
+        }
+
+        .section-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .section-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section-content li {
+            position: relative;
+            padding: 10px 0 10px 30px;
+            color: var(--light-text);
+            transition: var(--transition);
+        }
+
+        .section-content li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            transform: scale(0);
+            transition: var(--transition);
+        }
+
+        .section-content li:hover {
+            color: var(--text-color);
+            padding-left: 35px;
+        }
+
+        .section-content li:hover::before {
+            transform: scale(1);
+        }
+
+        /* Special Sections */
+        .download-section, .portfolio-section {
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 25px;
+            padding: 50px 40px;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .download-section::before, .portfolio-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .download-section h2, .portfolio-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .download-section p, .portfolio-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            z-index: 2;
+        }
+
+        .download-btn, .portfolio-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: white;
+            color: var(--primary-color);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+
+        .download-btn:hover, .portfolio-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Scroll Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-on-scroll.animate {
+            opacity: 1;
+        }
+
+        .slide-up {
+            transform: translateY(50px);
+        }
+
+        .slide-up.animate {
+            transform: translateY(0);
+        }
+
+        .slide-left {
+            transform: translateX(-50px);
+        }
+
+        .slide-left.animate {
+            transform: translateX(0);
+        }
+
+        .slide-right {
+            transform: translateX(50px);
+        }
+
+        .slide-right.animate {
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            transform: scale(0.8);
+        }
+
+        .scale-in.animate {
+            transform: scale(1);
+        }
+
+        /* Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            z-index: 1001;
+            transition: width 0.3s ease;
+        }
+
+        /* RTL Support */
+        .rtl {
+            direction: rtl;
+        }
+
+        .rtl .logo {
+            flex-direction: row-reverse;
+        }
+
+        .rtl nav {
+            flex-direction: row-reverse;
+        }
+
+        .rtl .header-buttons {
+            margin-left: 0;
+            margin-right: 30px;
+        }
+
+        .rtl .section-header {
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+
+        .rtl .section-content {
+            text-align: right;
+        }
+
+        .rtl .section-content li {
+            padding: 10px 30px 10px 0;
+        }
+
+        .rtl .section-content li::before {
+            right: 0;
+            left: auto;
+        }
+
+        .rtl .section-content li:hover {
+            padding-right: 35px;
+            padding-left: 0;
+        }
+
+        .rtl .download-btn, .rtl .portfolio-btn {
+            flex-direction: row-reverse;
+        }
+
+        .rtl .floating-element.element-1 {
+            left: auto;
+            right: 10%;
+        }
+
+        .rtl .floating-element.element-2 {
+            right: auto;
+            left: 10%;
+        }
+
+        .rtl .floating-element.element-3 {
+            left: auto;
+            right: 5%;
+        }
+
+        /* RTL Typography */
+        .rtl h1, .rtl h2, .rtl h3, .rtl h4 {
+            font-family: 'Cairo', 'Montserrat', sans-serif;
+        }
+
+        .rtl p, .rtl li {
+            font-family: 'Tajawal', 'Poppins', sans-serif;
+        }
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            nav {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .header-buttons {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+
+            .about-title {
+                font-size: 2.5rem;
+            }
+
+            .about-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .about-section {
+                padding: 30px 20px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .section-icon {
+                font-size: 2rem;
+                padding: 12px;
+            }
+
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .download-section, .portfolio-section {
+                padding: 40px 20px;
+            }
+
+            .download-section h2, .portfolio-section h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .about-title {
+                font-size: 2rem;
+            }
+
+            .section-content li {
+                padding: 8px 0 8px 25px;
+            }
+
+            .download-btn, .portfolio-btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-progress"></div>
+    
+    <header>
+        <div class="logo">Hamdy Dowidar <span>👨‍💻</span></div>
+        <nav>
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="1.html" class="nav-link">Portfolio</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <button id="darkModeToggle" title="Dark Mode"><i class="fas fa-moon"></i></button>
+            <button id="languageToggle" title="Toggle Language"><span>EN/AR</span></button>
+            <div class="header-buttons">
+        
+            </div>
+        </nav>
+    </header>
+
+    <main class="about-container">
+        <div class="floating-element element-1"></div>
+        <div class="floating-element element-2"></div>
+        <div class="floating-element element-3"></div>
+        
+        <section class="about-hero">
+            <h1 class="about-title">About Me</h1>
+            <p class="about-subtitle">Creative Solutions Expert with diverse skills in multimedia, technology, and innovation</p>
+        </section>
+
+        <section class="about-section animate-on-scroll slide-up">
+            <div class="section-header">
+                <i class="fas fa-video section-icon"></i>
+                <h2>Video Editing</h2>
+            </div>
+            <div class="section-content">
+                <p>With over 5 years of experience in video editing, I've worked with educational platforms, marketing companies, and as a freelancer in various markets including Egypt, Gulf countries, and Tanzania.</p>
+                <ul>
+                    <li>Proficient in Adobe Premiere Pro, After Effects, CapCut, and DaVinci Resolve</li>
+                    <li>Created promotional videos, reels, and visual hooks for restaurants, hotels, hospitals, gyms, and sports equipment</li>
+                    <li>Specialized in transforming raw footage into captivating visual stories</li>
+                    <li>Freelance experience in Egyptian, Gulf, and Tanzanian markets</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="about-section animate-on-scroll slide-left">
+            <div class="section-header">
+                <i class="fas fa-network-wired section-icon"></i>
+                <h2>Networking</h2>
+            </div>
+            <div class="section-content">
+                <p>Selected for networking during military service, gaining over 3 years of experience in managing and maintaining local networks.</p>
+                <ul>
+                    <li>Worked with military departments, clubs, and training centers</li>
+                    <li>Designed and implemented efficient networks using switches</li>
+                    <li>Created a local network for an educational platform to facilitate data transfer</li>
+                    <li>Specialized in network infrastructure setup and performance optimization</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="about-section animate-on-scroll slide-right">
+            <div class="section-header">
+                <i class="fas fa-robot section-icon"></i>
+                <h2>AI Web Development</h2>
+            </div>
+            <div class="section-content">
+                <p>Over 4 years of experience in AI-powered web design and development, with expertise in HTML, JavaScript, and CSS.</p>
+                <ul>
+                    <li>Developed websites for various sectors including marketing sites, attendance systems, and salon websites</li>
+                    <li>Specialized in programming smart accessories like business cards, rings, necklaces, and acrylic displays</li>
+                    <li>Ability to understand and modify code to meet client requirements</li>
+                    <li>Focus on user experience and device compatibility</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="about-section animate-on-scroll slide-up">
+            <div class="section-header">
+                <i class="fas fa-music section-icon"></i>
+                <h2>Audio Engineering</h2>
+            </div>
+            <div class="section-content">
+                <p>Professional audio engineer with over 5 years of experience producing music, songs, and audio recordings.</p>
+                <ul>
+                    <li>Worked with smart accessories, educational platforms, learning centers, and programming companies</li>
+                    <li>Skills include audio quality enhancement and sound processing</li>
+                    <li>Produced educational recordings and sound effects for apps and websites</li>
+                    <li>Uses latest technologies to deliver industry-standard audio content</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="about-section animate-on-scroll slide-left">
+            <div class="section-header">
+                <i class="fas fa-pen-fancy section-icon"></i>
+                <h2>Content Creation</h2>
+            </div>
+            <div class="section-content">
+                <p>Creative content writer and scriptwriter specializing in engaging narratives for videos, ads, and digital media.</p>
+                <ul>
+                    <li>Executed projects including voice-over scripts and innovative editing ideas</li>
+                    <li>Worked with educational platforms and marketing companies</li>
+                    <li>Specialized in understanding target audience needs</li>
+                    <li>Focus on merging creativity with strategic goals</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="about-section animate-on-scroll slide-right">
+            <div class="section-header">
+                <i class="fas fa-lightbulb section-icon"></i>
+                <h2>Creative Solutions</h2>
+            </div>
+            <div class="section-content">
+                <p>Innovative problem-solver offering creative solutions by combining technical expertise with creative thinking.</p>
+                <ul>
+                    <li>Worked on diverse projects including educational platforms and smart accessories</li>
+                    <li>Expertise in analyzing technical and creative challenges</li>
+                    <li>Develops customized strategies and effective solutions</li>
+                    <li>Focus on out-of-the-box thinking balanced with technical efficiency</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="download-section animate-on-scroll scale-in">
+            <h2>Download My Resume</h2>
+            <p>Get a comprehensive overview of my skills and experience in PDF format.</p>
+            <a href="path/to/your/resume.pdf" class="download-btn" download>
+                <i class="fas fa-file-pdf"></i> Download PDF
+            </a>
+        </section>
+
+        <section class="portfolio-section animate-on-scroll scale-in">
+            <h2>Explore My Portfolio</h2>
+            <p>Check out some of my best work across all my areas of expertise.</p>
+            <a href="1.html" class="portfolio-btn">
+                View Portfolio <i class="fas fa-arrow-right"></i>
+            </a>
+        </section>
+    </main>
+
+    <script>
+        // حماية متقدمة لمنع فتح أدوات المطورين
+        (function() {
+            'use strict';
+            
+            // منع فتح الأدوات نهائياً
+            function blockDevTools() {
+                // منع فتح الأدوات عن طريق F12 أو Ctrl+Shift+I أو Ctrl+Shift+J أو Ctrl+Shift+C أو Ctrl+U
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'F12' || 
+                        (e.ctrlKey && e.shiftKey && e.key === 'I') || 
+                        (e.ctrlKey && e.shiftKey && e.key === 'J') || 
+                        (e.ctrlKey && e.shiftKey && e.key === 'C') || 
+                        (e.ctrlKey && e.key === 'U') ||
+                        (e.key === 'F5' && e.ctrlKey) ||
+                        (e.key === 'F5' && e.shiftKey)) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        e.stopImmediatePropagation();
+                        return false;
+                    }
+                });
+                
+                // منع النقر بزر الماوس الأيمن
+                document.addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                // منع سحب المحتوى
+                document.addEventListener('dragstart', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                // منع اختيار النص
+                document.addEventListener('selectstart', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+            }
+            
+            // تشغيل الحماية عند تحميل الصفحة
+            window.addEventListener('load', blockDevTools);
+            window.addEventListener('DOMContentLoaded', blockDevTools);
+        })();
+
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        darkModeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                document.documentElement.removeAttribute('data-theme');
+                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+        
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+        
+        // Translation System
+        const translations = {
+            en: {
+                // Navigation
+                home: "Home",
+                portfolio: "Portfolio",
+                contact: "Contact",
+                
+                // Hero Section
+                aboutTitle: "About Me",
+                aboutSubtitle: "Creative Solutions Expert with diverse skills in multimedia, technology, and innovation",
+                
+                // Video Editing Section
+                videoEditingTitle: "Video Editing",
+                videoEditingDesc: "With over 5 years of experience in video editing, I've worked with educational platforms, marketing companies, and as a freelancer in various markets including Egypt, Gulf countries, and Tanzania.",
+                videoEditingSkill1: "Proficient in Adobe Premiere Pro, After Effects, CapCut, and DaVinci Resolve",
+                videoEditingSkill2: "Created promotional videos, reels, and visual hooks for restaurants, hotels, hospitals, gyms, and sports equipment",
+                videoEditingSkill3: "Specialized in transforming raw footage into captivating visual stories",
+                videoEditingSkill4: "Freelance experience in Egyptian, Gulf, and Tanzanian markets",
+                
+                // Networking Section
+                networkingTitle: "Networking",
+                networkingDesc: "Selected for networking during military service, gaining over 3 years of experience in managing and maintaining local networks.",
+                networkingSkill1: "Worked with military departments, clubs, and training centers",
+                networkingSkill2: "Designed and implemented efficient networks using switches",
+                networkingSkill3: "Created a local network for an educational platform to facilitate data transfer",
+                networkingSkill4: "Specialized in network infrastructure setup and performance optimization",
+                
+                // AI Web Development Section
+                aiWebTitle: "AI Web Development",
+                aiWebDesc: "Over 4 years of experience in AI-powered web design and development, with expertise in HTML, JavaScript, and CSS.",
+                aiWebSkill1: "Developed websites for various sectors including marketing sites, attendance systems, and salon websites",
+                aiWebSkill2: "Specialized in programming smart accessories like business cards, rings, necklaces, and acrylic displays",
+                aiWebSkill3: "Ability to understand and modify code to meet client requirements",
+                aiWebSkill4: "Focus on user experience and device compatibility",
+                
+                // Audio Engineering Section
+                audioTitle: "Audio Engineering",
+                audioDesc: "Professional audio engineer with over 5 years of experience producing music, songs, and audio recordings.",
+                audioSkill1: "Worked with smart accessories, educational platforms, learning centers, and programming companies",
+                audioSkill2: "Skills include audio quality enhancement and sound processing",
+                audioSkill3: "Produced educational recordings and sound effects for apps and websites",
+                audioSkill4: "Uses latest technologies to deliver industry-standard audio content",
+                
+                // Content Creation Section
+                contentTitle: "Content Creation",
+                contentDesc: "Creative content writer and scriptwriter specializing in engaging narratives for videos, ads, and digital media.",
+                contentSkill1: "Executed projects including voice-over scripts and innovative editing ideas",
+                contentSkill2: "Worked with educational platforms and marketing companies",
+                contentSkill3: "Specialized in understanding target audience needs",
+                contentSkill4: "Focus on merging creativity with strategic goals",
+                
+                // Creative Solutions Section
+                creativeSolutionsTitle: "Creative Solutions",
+                creativeSolutionsDesc: "Innovative problem-solver offering creative solutions by combining technical expertise with creative thinking.",
+                creativeSolutionsSkill1: "Worked on diverse projects including educational platforms and smart accessories",
+                creativeSolutionsSkill2: "Expertise in analyzing technical and creative challenges",
+                creativeSolutionsSkill3: "Develops customized strategies and effective solutions",
+                creativeSolutionsSkill4: "Focus on out-of-the-box thinking balanced with technical efficiency",
+                
+                // Download & Portfolio Sections
+                downloadTitle: "Download My Resume",
+                downloadDesc: "Get a comprehensive overview of my skills and experience in PDF format.",
+                downloadBtn: "Download PDF",
+                portfolioTitle: "Explore My Portfolio",
+                portfolioDesc: "Check out some of my best work across all my areas of expertise.",
+                portfolioBtn: "View Portfolio"
+            },
+            ar: {
+                // Navigation
+                home: "الرئيسية",
+                portfolio: "معرض الأعمال",
+                contact: "التواصل",
+                
+                // Hero Section
+                aboutTitle: "نبذة عني",
+                aboutSubtitle: "خبير في الحلول الإبداعية مع مهارات متنوعة في الوسائط المتعددة والتكنولوجيا والابتكار",
+                
+                // Video Editing Section
+                videoEditingTitle: "مونتاج الفيديو",
+                videoEditingDesc: "مع أكثر من 5 سنوات من الخبرة في مونتاج الفيديو، عملت مع المنصات التعليمية وشركات التسويق وكمستقل في أسواق مختلفة تشمل مصر ودول الخليج وتنزانيا.",
+                videoEditingSkill1: "إتقان Adobe Premiere Pro و After Effects و CapCut و DaVinci Resolve",
+                videoEditingSkill2: "إنشاء فيديوهات ترويجية وريلز وخطافات بصرية للمطاعم والفنادق والمستشفيات والصالات الرياضية ومعدات الرياضة",
+                videoEditingSkill3: "متخصص في تحويل اللقطات الخام إلى قصص بصرية جذابة",
+                videoEditingSkill4: "خبرة في العمل الحر في الأسواق المصرية والخليجية والتنزانية",
+                
+                // Networking Section
+                networkingTitle: "الشبكات",
+                networkingDesc: "تم اختياري للعمل في الشبكات أثناء الخدمة العسكرية، اكتسبت أكثر من 3 سنوات من الخبرة في إدارة وصيانة الشبكات المحلية.",
+                networkingSkill1: "عملت مع الإدارات العسكرية والأندية ومراكز التدريب",
+                networkingSkill2: "تصميم وتنفيذ شبكات فعالة باستخدام المفاتيح",
+                networkingSkill3: "إنشاء شبكة محلية لمنصة تعليمية لتسهيل نقل البيانات",
+                networkingSkill4: "متخصص في إعداد البنية التحتية للشبكات وتحسين الأداء",
+                
+                // AI Web Development Section
+                aiWebTitle: "تطوير المواقع بالذكاء الاصطناعي",
+                aiWebDesc: "أكثر من 4 سنوات من الخبرة في تصميم وتطوير المواقع المدعومة بالذكاء الاصطناعي، مع خبرة في HTML و JavaScript و CSS.",
+                aiWebSkill1: "تطوير مواقع لقطاعات مختلفة تشمل مواقع التسويق وأنظمة الحضور ومواقع الصالونات",
+                aiWebSkill2: "متخصص في برمجة الإكسسوارات الذكية مثل بطاقات العمل والخواتم والقلائد وشاشات الأكريليك",
+                aiWebSkill3: "القدرة على فهم وتعديل الكود لتلبية متطلبات العملاء",
+                aiWebSkill4: "التركيز على تجربة المستخدم وتوافق الأجهزة",
+                
+                // Audio Engineering Section
+                audioTitle: "هندسة الصوت",
+                audioDesc: "مهندس صوت محترف مع أكثر من 5 سنوات من الخبرة في إنتاج الموسيقى والأغاني والتسجيلات الصوتية.",
+                audioSkill1: "عملت مع الإكسسوارات الذكية والمنصات التعليمية ومراكز التعلم وشركات البرمجة",
+                audioSkill2: "المهارات تشمل تحسين جودة الصوت ومعالجة الصوت",
+                audioSkill3: "إنتاج تسجيلات تعليمية ومؤثرات صوتية للتطبيقات والمواقع",
+                audioSkill4: "استخدام أحدث التقنيات لتقديم محتوى صوتي بمعايير الصناعة",
+                
+                // Content Creation Section
+                contentTitle: "إنشاء المحتوى",
+                contentDesc: "كاتب محتوى إبداعي وكاتب سيناريو متخصص في السرد الجذاب للفيديوهات والإعلانات والوسائط الرقمية.",
+                contentSkill1: "تنفيذ مشاريع تشمل سكريبتات التعليق الصوتي وأفكار المونتاج المبتكرة",
+                contentSkill2: "عملت مع المنصات التعليمية وشركات التسويق",
+                contentSkill3: "متخصص في فهم احتياجات الجمهور المستهدف",
+                contentSkill4: "التركيز على دمج الإبداع مع الأهداف الاستراتيجية",
+                
+                // Creative Solutions Section
+                creativeSolutionsTitle: "الحلول الإبداعية",
+                creativeSolutionsDesc: "حلال مشاكل مبتكر يقدم حلولاً إبداعية من خلال الجمع بين الخبرة التقنية والتفكير الإبداعي.",
+                creativeSolutionsSkill1: "عملت على مشاريع متنوعة تشمل المنصات التعليمية والإكسسوارات الذكية",
+                creativeSolutionsSkill2: "خبرة في تحليل التحديات التقنية والإبداعية",
+                creativeSolutionsSkill3: "تطوير استراتيجيات مخصصة وحلول فعالة",
+                creativeSolutionsSkill4: "التركيز على التفكير خارج الصندوق متوازن مع الكفاءة التقنية",
+                
+                // Download & Portfolio Sections
+                downloadTitle: "تحميل السيرة الذاتية",
+                downloadDesc: "احصل على نظرة شاملة على مهاراتي وخبرتي بصيغة PDF.",
+                downloadBtn: "تحميل PDF",
+                portfolioTitle: "استكشف معرض أعمالي",
+                portfolioDesc: "اطلع على بعض من أفضل أعمالي في جميع مجالات خبرتي.",
+                portfolioBtn: "عرض معرض الأعمال"
+            }
+        };
+
+        let currentLanguage = 'en';
+
+        function updateContent(lang) {
+            const trans = translations[lang];
+            
+            // Navigation
+            document.querySelector('a[href="index.html"]').textContent = trans.home;
+            document.querySelector('a[href="1.html"]').textContent = trans.portfolio;
+            document.querySelector('a[href="contact.html"]').textContent = trans.contact;
+            
+            // Hero Section
+            document.querySelector('.about-title').textContent = trans.aboutTitle;
+            document.querySelector('.about-subtitle').textContent = trans.aboutSubtitle;
+            
+            // Video Editing Section
+            const videoSection = document.querySelectorAll('.about-section')[0];
+            videoSection.querySelector('h2').textContent = trans.videoEditingTitle;
+            videoSection.querySelector('p').textContent = trans.videoEditingDesc;
+            const videoSkills = videoSection.querySelectorAll('li');
+            videoSkills[0].textContent = trans.videoEditingSkill1;
+            videoSkills[1].textContent = trans.videoEditingSkill2;
+            videoSkills[2].textContent = trans.videoEditingSkill3;
+            videoSkills[3].textContent = trans.videoEditingSkill4;
+            
+            // Networking Section
+            const networkSection = document.querySelectorAll('.about-section')[1];
+            networkSection.querySelector('h2').textContent = trans.networkingTitle;
+            networkSection.querySelector('p').textContent = trans.networkingDesc;
+            const networkSkills = networkSection.querySelectorAll('li');
+            networkSkills[0].textContent = trans.networkingSkill1;
+            networkSkills[1].textContent = trans.networkingSkill2;
+            networkSkills[2].textContent = trans.networkingSkill3;
+            networkSkills[3].textContent = trans.networkingSkill4;
+            
+            // AI Web Development Section
+            const aiWebSection = document.querySelectorAll('.about-section')[2];
+            aiWebSection.querySelector('h2').textContent = trans.aiWebTitle;
+            aiWebSection.querySelector('p').textContent = trans.aiWebDesc;
+            const aiWebSkills = aiWebSection.querySelectorAll('li');
+            aiWebSkills[0].textContent = trans.aiWebSkill1;
+            aiWebSkills[1].textContent = trans.aiWebSkill2;
+            aiWebSkills[2].textContent = trans.aiWebSkill3;
+            aiWebSkills[3].textContent = trans.aiWebSkill4;
+            
+            // Audio Engineering Section
+            const audioSection = document.querySelectorAll('.about-section')[3];
+            audioSection.querySelector('h2').textContent = trans.audioTitle;
+            audioSection.querySelector('p').textContent = trans.audioDesc;
+            const audioSkills = audioSection.querySelectorAll('li');
+            audioSkills[0].textContent = trans.audioSkill1;
+            audioSkills[1].textContent = trans.audioSkill2;
+            audioSkills[2].textContent = trans.audioSkill3;
+            audioSkills[3].textContent = trans.audioSkill4;
+            
+            // Content Creation Section
+            const contentSection = document.querySelectorAll('.about-section')[4];
+            contentSection.querySelector('h2').textContent = trans.contentTitle;
+            contentSection.querySelector('p').textContent = trans.contentDesc;
+            const contentSkills = contentSection.querySelectorAll('li');
+            contentSkills[0].textContent = trans.contentSkill1;
+            contentSkills[1].textContent = trans.contentSkill2;
+            contentSkills[2].textContent = trans.contentSkill3;
+            contentSkills[3].textContent = trans.contentSkill4;
+            
+            // Creative Solutions Section
+            const creativeSection = document.querySelectorAll('.about-section')[5];
+            creativeSection.querySelector('h2').textContent = trans.creativeSolutionsTitle;
+            creativeSection.querySelector('p').textContent = trans.creativeSolutionsDesc;
+            const creativeSkills = creativeSection.querySelectorAll('li');
+            creativeSkills[0].textContent = trans.creativeSolutionsSkill1;
+            creativeSkills[1].textContent = trans.creativeSolutionsSkill2;
+            creativeSkills[2].textContent = trans.creativeSolutionsSkill3;
+            creativeSkills[3].textContent = trans.creativeSolutionsSkill4;
+            
+            // Download Section
+            document.querySelector('.download-section h2').textContent = trans.downloadTitle;
+            document.querySelector('.download-section p').textContent = trans.downloadDesc;
+            document.querySelector('.download-btn').innerHTML = `<i class="fas fa-file-pdf"></i> ${trans.downloadBtn}`;
+            
+            // Portfolio Section
+            document.querySelector('.portfolio-section h2').textContent = trans.portfolioTitle;
+            document.querySelector('.portfolio-section p').textContent = trans.portfolioDesc;
+            document.querySelector('.portfolio-btn').innerHTML = `${trans.portfolioBtn} <i class="fas fa-arrow-right"></i>`;
+        }
+
+        // Language Toggle
+        const languageToggle = document.getElementById('languageToggle');
+        languageToggle.addEventListener('click', () => {
+            currentLanguage = currentLanguage === 'en' ? 'ar' : 'en';
+            document.documentElement.lang = currentLanguage;
+            
+            if (currentLanguage === 'ar') {
+                document.body.style.direction = 'rtl';
+                document.body.classList.add('rtl');
+                languageToggle.textContent = 'EN';
+                localStorage.setItem('language', 'ar');
+            } else {
+                document.body.style.direction = 'ltr';
+                document.body.classList.remove('rtl');
+                languageToggle.textContent = 'AR';
+                localStorage.setItem('language', 'en');
+            }
+            
+            updateContent(currentLanguage);
+        });
+
+        // Check for saved language preference
+        const savedLanguage = localStorage.getItem('language');
+        if (savedLanguage) {
+            currentLanguage = savedLanguage;
+            document.documentElement.lang = currentLanguage;
+            
+            if (currentLanguage === 'ar') {
+                document.body.style.direction = 'rtl';
+                document.body.classList.add('rtl');
+                languageToggle.textContent = 'EN';
+            } else {
+                languageToggle.textContent = 'AR';
+            }
+            
+            updateContent(currentLanguage);
+        }
+
+        // Scroll Progress Bar
+        function updateScrollProgress() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.querySelector('.scroll-progress').style.width = scrollPercent + '%';
+        }
+
+        // Scroll Animations
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('animate');
+                }
+            });
+        }
+
+        // Enhanced scroll animation with stagger effect
+        function staggeredAnimation() {
+            const sections = document.querySelectorAll('.about-section');
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    setTimeout(() => {
+                        section.style.animationDelay = `${index * 0.1}s`;
+                        section.classList.add('animate');
+                    }, index * 100);
+                }
+            });
+        }
+
+        // Parallax effect for floating elements
+        function parallaxEffect() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.floating-element');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = (index + 1) * 0.5;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        }
+
+        // Smooth scroll behavior
+        function smoothScroll() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = document.querySelector(link.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Initialize animations
+        window.addEventListener('scroll', () => {
+            updateScrollProgress();
+            animateOnScroll();
+            staggeredAnimation();
+            parallaxEffect();
+        });
+
+        // Initialize on page load
+        window.addEventListener('load', () => {
+            // Check for saved language preference first
+            const savedLanguage = localStorage.getItem('language');
+            if (savedLanguage) {
+                currentLanguage = savedLanguage;
+                document.documentElement.lang = currentLanguage;
+                
+                if (currentLanguage === 'ar') {
+                    document.body.style.direction = 'rtl';
+                    document.body.classList.add('rtl');
+                    languageToggle.textContent = 'EN';
+                } else {
+                    languageToggle.textContent = 'AR';
+                }
+                
+                updateContent(currentLanguage);
+            }
+            
+            animateOnScroll();
+            smoothScroll();
+            
+            // Add entrance animation to hero section
+            setTimeout(() => {
+                document.querySelector('.about-hero').style.opacity = '1';
+                document.querySelector('.about-hero').style.transform = 'translateY(0)';
+            }, 300);
+        });
+
+        // Add hover effects to cards
+        document.querySelectorAll('.about-section').forEach(section => {
+            section.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            section.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add typing effect to title
+        function typeWriter() {
+            const title = document.querySelector('.about-title');
+            const text = title.textContent;
+            title.textContent = '';
+            
+            for (let i = 0; i < text.length; i++) {
+                setTimeout(() => {
+                    title.textContent += text.charAt(i);
+                }, i * 100);
+            }
+        }
+
+        // Start typing effect after page load
+        setTimeout(typeWriter, 1000);
+    </script>
+</body>
+</html>

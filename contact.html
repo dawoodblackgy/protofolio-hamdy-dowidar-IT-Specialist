@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamdy Dowidar Portfolio | Creative Solutions Expert</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #693EFF;
+            --secondary-color: #4D2DB7;
+            --accent-color: #FF6B6B;
+            --bg-color: #F8F9FA;
+            --text-color: #333333;
+            --light-text: #6C757D;
+            --header-bg: rgba(255, 255, 255, 0.9);
+            --card-bg: #FFFFFF;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #7d5fff;
+            --secondary-color: #5d3fd3;
+            --accent-color: #FF8E8E;
+            --bg-color: #121212;
+            --text-color: #F0F0F0;
+            --light-text: #A0A0A0;
+            --header-bg: rgba(30, 30, 30, 0.9);
+            --card-bg: #1E1E1E;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: var(--transition);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        p {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--light-text);
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--header-bg);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            font-size: 1.2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-link {
+            position: relative;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: var(--transition);
+            padding: 5px 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: 30px;
+        }
+
+        /* Button Styles */
+        #darkModeToggle, #languageToggle {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        #darkModeToggle {
+            color: var(--text-color);
+            font-size: 1.2rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+        }
+
+        #darkModeToggle:hover {
+            background: rgba(105, 62, 255, 0.1);
+        }
+
+        #languageToggle {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        #languageToggle:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        .element-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary-color);
+            top: 10%;
+            left: 10%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .element-2 {
+            width: 200px;
+            height: 200px;
+            background: var(--accent-color);
+            bottom: 10%;
+            right: 10%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        /* Contact Form Styles */
+        .contact-container {
+            padding: 120px 5% 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-form {
+            width: 100%;
+            max-width: 800px;
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            margin-bottom: 50px;
+        }
+
+        .contact-title {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: var(--primary-color);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: var(--card-bg);
+            color: var(--text-color);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(105, 62, 255, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(105, 62, 255, 0.3);
+        }
+
+        /* Social Media Styles */
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(105, 62, 255, 0.3);
+        }
+
+        .social-icon.facebook { background-color: #3b5998; }
+        .social-icon.instagram { background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); }
+        .social-icon.whatsapp { background-color: #25D366; }
+        .social-icon.telegram { background-color: #0088cc; }
+        .social-icon.linkedin { background-color: #0077b5; }
+
+        /* Contact Numbers */
+        .contact-numbers {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .phone-number {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: var(--transition);
+            padding: 15px 25px;
+            border-radius: 10px;
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+        }
+
+        .phone-number:hover {
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .phone-icon {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            nav {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .header-buttons {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+
+            .contact-title {
+                font-size: 2rem;
+            }
+
+            .contact-form {
+                padding: 30px 20px;
+            }
+
+            .phone-number {
+                font-size: 1.2rem;
+                padding: 10px 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact-title {
+                font-size: 1.8rem;
+            }
+
+            .social-media {
+                gap: 15px;
+            }
+
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .contact-numbers {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Hamdy Dowidar <span>👨‍💻</span></div>
+        <nav>
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="1.html" class="nav-link">Portfolio</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="contact.html" class="nav-link active">Contact</a>
+            <button id="darkModeToggle" title="Dark Mode"><i class="fas fa-moon"></i></button>
+            <button id="languageToggle" title="Toggle Language"><span>EN/AR</span></button>
+            <div class="header-buttons">
+              
+            </div>
+        </nav>
+    </header>
+
+    <div class="contact-container">
+        <div class="floating-element element-1"></div>
+        <div class="floating-element element-2"></div>
+        
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <h2 class="contact-title">Contact Me</h2>
+            <form id="contactForm" action="https://formspree.io/f/xgvznlkz" method="POST">
+                <div class="form-group">
+                    <label for="companyName" class="form-label">Company Name</label>
+                    <input type="text" id="companyName" name="company" class="form-control" placeholder="Enter your company name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="senderName" class="form-label">Your Name</label>
+                    <input type="text" id="senderName" name="name" class="form-control" placeholder="Enter your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="serviceType" class="form-label">Service Type</label>
+                    <select id="serviceType" name="service" class="form-control" required>
+                        <option value="">Select a service</option>
+                        <option value="video-editing">Video Editing</option>
+                        <option value="ai-website">AI Website Design</option>
+                        <option value="networking">Networking</option>
+                        <option value="content-writing">Content Writing & Social Media Management</option>
+                        <option value="creative-content">Creative Content for Photography</option>
+                        <option value="audio-engineering">Audio Engineering</option>
+                        <option value="voice-over">Voice Over</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="meetingTime" class="form-label">Meeting Time</label>
+                    <input type="datetime-local" id="meetingTime" name="meeting_time" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea id="message" name="message" class="form-control" placeholder="Enter your message" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">SEND MESSAGE <i class="fas fa-paper-plane"></i></button>
+            </form>
+        </div>
+        
+        <!-- Social Media Links -->
+        <div class="social-media">
+            <a href="https://www.facebook.com/Sky.lill?locale=ar_AR" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/sky_lilll/" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/qr/RP6MHLBREHIZG1" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://telegram.me/@skylill" class="social-icon telegram"><i class="fab fa-telegram"></i></a>
+        </div>
+        
+        <!-- Contact Numbers -->
+        <div class="contact-numbers">
+            <a href="tel:+201063860194" class="phone-number">
+                <i class="fas fa-phone-alt phone-icon"></i>
+                +201063860194
+            </a>
+            <a href="tel:+201115238909" class="phone-number">
+                <i class="fas fa-phone-alt phone-icon"></i>
+                +20 1115238909
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // حماية متقدمة لمنع فتح أدوات المطورين
+        (function() {
+            'use strict';
+            
+            // منع فتح الأدوات نهائياً
+            function blockDevTools() {
+                // منع فتح الأدوات عن طريق F12 أو Ctrl+Shift+I أو Ctrl+Shift+J أو Ctrl+Shift+C أو Ctrl+U
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'F12' || 
+                        (e.ctrlKey && e.shiftKey && e.key === 'I') || 
+                        (e.ctrlKey && e.shiftKey && e.key === 'J') || 
+                        (e.ctrlKey && e.shiftKey && e.key === 'C') || 
+                        (e.ctrlKey && e.key === 'U') ||
+                        (e.key === 'F5' && e.ctrlKey) ||
+                        (e.key === 'F5' && e.shiftKey)) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        e.stopImmediatePropagation();
+                        return false;
+                    }
+                });
+                
+                // منع النقر بزر الماوس الأيمن
+                document.addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                // منع سحب المحتوى
+                document.addEventListener('dragstart', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                // منع اختيار النص
+                document.addEventListener('selectstart', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                // كشف محاولات فتح الأدوات عن طريق تغيير حجم النافذة
+                let windowWidth = window.innerWidth;
+                let windowHeight = window.innerHeight;
+                
+                setInterval(function() {
+                    if (window.innerWidth !== windowWidth || window.innerHeight !== windowHeight) {
+                        // تم تغيير حجم النافذة (مؤشر على فتح الأدوات)
+                        window.location.reload();
+                    }
+                }, 1000);
+                
+                // كشف فتح الأدوات عن طريق التوقيت
+                const debugChecker = new Function('try {return !!window.console;} catch(e) {}');
+                const threshold = 160;
+                
+                setInterval(function() {
+                    const start = performance.now();
+                    debugChecker();
+                    const end = performance.now();
+                    
+                    if (end - start > threshold) {
+                        // تم اكتشاف فتح الأدوات
+                        document.body.innerHTML = '<h1 style="text-align:center;color:red;margin-top:100px;">Access Denied</h1>';
+                        document.body.style.backgroundColor = 'black';
+                        window.stop();
+                    }
+                }, 1000);
+                
+                // منع فتح الأدوات عن طريق القائمة
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Alt') {
+                        e.preventDefault();
+                        return false;
+                    }
+                });
+            }
+            
+            // تشغيل الحماية عند تحميل الصفحة
+            window.addEventListener('load', blockDevTools);
+            window.addEventListener('DOMContentLoaded', blockDevTools);
+            
+            // إعادة تشغيل الحماية عند محاولة التعديل على الكود
+            if (window.addEventListener) {
+                window.addEventListener('resize', blockDevTools);
+                window.addEventListener('mousemove', blockDevTools);
+                window.addEventListener('focus', blockDevTools);
+                window.addEventListener('blur', blockDevTools);
+            }
+            
+            // حماية إضافية ضد تعديل الكود من خلال Console
+            Object.defineProperty(window, 'console', {
+                value: {},
+                writable: false,
+                configurable: false
+            });
+            
+            Object.defineProperty(window, 'eval', {
+                value: function() {
+                    throw new Error('Eval is disabled for security reasons');
+                },
+                writable: false,
+                configurable: false
+            });
+            
+            // منع فتح الأدوات عن طريق زر القائمة في المتصفح
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'F1' || (e.ctrlKey && e.key === 'F1')) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            
+            // حماية ضد إعادة تعريف الدوال المهمة
+            Function.prototype.constructor = function() {
+                return null;
+            };
+            
+            // إخفاء الكود عن طريق تشويشه (Obfuscation)
+            const originalAddEventListener = EventTarget.prototype.addEventListener;
+            EventTarget.prototype.addEventListener = function(type, listener, options) {
+                if (type === 'devtoolschange' || type === 'devtoolsopened' || type === 'devtoolsclosed') {
+                    return;
+                }
+                originalAddEventListener.call(this, type, listener, options);
+            };
+            
+            // كشف فتح الأدوات عن طريق الفرق في التوقيت
+            const checkDevTools = function() {
+                const start = new Date().getTime();
+                debugger;
+                const end = new Date().getTime();
+                if (end - start > 100) {
+                    document.body.innerHTML = '<h1 style="text-align:center;color:red;margin-top:100px;">Developer Tools Detected</h1>';
+                    document.body.style.backgroundColor = 'black';
+                    window.location.href = 'about:blank';
+                }
+            };
+            
+            setInterval(checkDevTools, 1000);
+        })();
+
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        darkModeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                document.documentElement.removeAttribute('data-theme');
+                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+        
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+        
+        // Language Toggle
+        const languageToggle = document.getElementById('languageToggle');
+        languageToggle.addEventListener('click', () => {
+            const currentLang = document.documentElement.lang;
+            const newLang = currentLang === 'en' ? 'ar' : 'en';
+            document.documentElement.lang = newLang;
+            
+            if (newLang === 'ar') {
+                document.body.style.direction = 'rtl';
+                document.body.classList.add('rtl');
+                languageToggle.textContent = 'EN';
+            } else {
+                document.body.style.direction = 'ltr';
+                document.body.classList.remove('rtl');
+                languageToggle.textContent = 'AR';
+            }
+        });
+        
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            
+            try {
+                // تغيير نص الزر أثناء الإرسال
+                submitBtn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+                submitBtn.disabled = true;
+                
+                // إرسال البيانات إلى Formspree
+                const formData = new FormData(contactForm);
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    alert(`Thank you for your message! I'll contact you soon.`);
+                    contactForm.reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                alert('There was a problem sending your message. Please try again later.');
+                console.error('Error:', error);
+            } finally {
+                // إعادة تعيين الزر إلى حالته الأصلية
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

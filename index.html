@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamdy Dowidar Portfolio | Creative Solutions Expert</title>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts - Enhanced typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #F8FAFC;
+            --text-color: #1E293B;
+            --text-secondary: #64748B;
+            --header-bg: rgba(255, 255, 255, 0.95);
+            --nav-link-color: #475569;
+            --carousel-bg: transparent;
+            --button-bg: #6366F1;
+            --button-hover: #4F46E5;
+            --button-text: #FFFFFF;
+            --detail-bg: rgba(255, 255, 255, 0.1);
+            --blur-bg: rgba(255, 255, 255, 0.25);
+            --border-color: #E2E8F0;
+            --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --gradient-primary: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+            --gradient-accent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0F172A;
+            --text-color: #F1F5F9;
+            --text-secondary: #94A3B8;
+            --header-bg: rgba(15, 23, 42, 0.95);
+            --nav-link-color: #CBD5E1;
+            --carousel-bg: #1E293B;
+            --button-bg: #7C3AED;
+            --button-hover: #6D28D9;
+            --button-text: #F8FAFC;
+            --detail-bg: rgba(30, 41, 59, 0.8);
+            --blur-bg: rgba(15, 23, 42, 0.8);
+            --border-color: #334155;
+            --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-x: hidden;
+        }
+
+        body.rtl {
+            font-family: 'Cairo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        /* Enhanced Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--header-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--nav-link-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(-50%);
+        }
+
+        nav a:hover {
+            color: var(--text-color);
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        nav a:hover::before {
+            width: 80%;
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        #darkModeToggle, #languageToggle {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        #darkModeToggle:hover, #languageToggle:hover {
+            background: var(--button-bg);
+            color: var(--button-text);
+            border-color: var(--button-bg);
+            transform: translateY(-1px);
+        }
+
+        /* Enhanced Carousel */
+        .carousel {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            background: var(--bg-color);
+            margin-top: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .carousel::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            width: 600px;
+            height: 400px;
+            background: var(--gradient-accent);
+            border-radius: 30% 70% 70% 30%;
+            filter: blur(120px);
+            opacity: 0.3;
+            z-index: -1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .carousel .list {
+            position: absolute;
+            width: 1200px;
+            max-width: 90%;
+            height: 80%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .carousel .list .item {
+            position: absolute;
+            width: 70%;
+            height: 100%;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 1.5rem;
+            overflow: hidden;
+        }
+
+        .carousel .list .item:nth-child(n + 6) {
+            opacity: 0;
+        }
+
+        .carousel .list .item:nth-child(2) {
+            z-index: 10;
+            transform: translateX(0);
+        }
+
+        .carousel .list .item:nth-child(1) {
+            transform: translateX(-100%) translateY(-5%) scale(1.5);
+            filter: blur(30px);
+            z-index: 11;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .carousel .list .item:nth-child(3) {
+            transform: translate(50%, 10%) scale(0.8);
+            filter: blur(10px);
+            z-index: 9;
+        }
+
+        .carousel .list .item:nth-child(4) {
+            transform: translate(90%, 20%) scale(0.5);
+            filter: blur(30px);
+            z-index: 8;
+        }
+
+        .carousel .list .item:nth-child(5) {
+            transform: translate(120%, 30%) scale(0.3);
+            filter: blur(40px);
+            z-index: 7;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .carousel .list .item img {
+            width: 50%;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: right 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            object-fit: contain;
+            max-height: 80%;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .carousel .list .item .introduce {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .carousel .list .item:nth-child(2) .introduce {
+            opacity: 1;
+            pointer-events: auto;
+            width: 500px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: opacity 0.5s;
+            padding: 2rem;
+        }
+
+        .carousel .list .item .introduce .title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .carousel .list .item .introduce .topic {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--text-color);
+            margin: 1rem 0;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .carousel .list .item .introduce .des {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            max-width: 400px;
+        }
+
+        .carousel .list .item .introduce .seeMore {
+            background: var(--button-bg);
+            color: var(--button-text);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .carousel .list .item .introduce .seeMore:hover {
+            background: var(--button-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .carousel .list .item .introduce .seeMore::after {
+            content: '';
+            width: 1rem;
+            height: 1rem;
+            background: currentColor;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M17 8l4 4m0 0l-4 4m4-4H3'/%3E%3C/svg%3E") no-repeat center;
+            mask-size: contain;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .carousel .list .item .introduce .seeMore:hover::after {
+            transform: translateX(0.25rem);
+        }
+
+        /* Enhanced Detail View */
+        .carousel .list .item .detail {
+            opacity: 0;
+            pointer-events: none;
+            background: var(--detail-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .carousel.showDetail .list .item:nth-child(2) .detail {
+            opacity: 1;
+            width: 50%;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: right;
+            pointer-events: auto;
+            padding: 3rem;
+            box-sizing: border-box;
+        }
+
+        .carousel.showDetail .list .item:nth-child(2) .detail .title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .carousel.showDetail .list .item:nth-child(2) .detail .des {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .carousel.showDetail .list .item:nth-child(2) .detail .specifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 2rem;
+            padding-top: 2rem;
+        }
+
+        .carousel.showDetail .list .item:nth-child(2) .detail .specifications div {
+            text-align: center;
+        }
+
+        .carousel.showDetail .list .item:nth-child(2) .detail .specifications div p:first-child {
+            font-weight: 600;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .carousel.showDetail .list .item:nth-child(2) .detail .specifications div p:last-child {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .carousel.showDetail .list .item:nth-child(2) .checkout {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        .carousel.showDetail .list .item:nth-child(2) .checkout button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .carousel.showDetail .list .item:nth-child(2) .checkout button:first-child {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+        }
+
+        .carousel.showDetail .list .item:nth-child(2) .checkout button:last-child {
+            background: var(--button-bg);
+            color: var(--button-text);
+            border: 1px solid var(--button-bg);
+        }
+
+        .carousel.showDetail .list .item:nth-child(2) .checkout button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-light);
+        }
+
+        /* Enhanced Controls */
+        .arrows {
+            position: absolute;
+            bottom: 2rem;
+            width: 1200px;
+            max-width: 90%;
+            display: flex;
+            justify-content: space-between;
+            left: 50%;
+            transform: translateX(-50%);
+            align-items: center;
+        }
+
+        #prev, #next {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            background: var(--header-bg);
+            color: var(--text-color);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        #prev:hover, #next:hover {
+            background: var(--button-bg);
+            color: var(--button-text);
+            border-color: var(--button-bg);
+            transform: scale(1.1);
+        }
+
+        #back {
+            background: var(--button-bg);
+            color: var(--button-text);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .carousel.showDetail #back {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .carousel.showDetail #prev,
+        .carousel.showDetail #next {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #back:hover {
+            background: var(--button-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        .carousel .list .item:nth-child(2) .introduce .title,
+        .carousel .list .item:nth-child(2) .introduce .topic,
+        .carousel .list .item:nth-child(2) .introduce .des,
+        .carousel .list .item:nth-child(2) .introduce .seeMore {
+            opacity: 0;
+            animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(2rem);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .carousel .list .item:nth-child(2) .introduce .topic { animation-delay: 0.2s; }
+        .carousel .list .item:nth-child(2) .introduce .des { animation-delay: 0.4s; }
+        .carousel .list .item:nth-child(2) .introduce .seeMore { animation-delay: 0.6s; }
+
+        .carousel.showDetail .list .item:nth-child(2) .detail .title,
+        .carousel.showDetail .list .item:nth-child(2) .detail .des,
+        .carousel.showDetail .list .item:nth-child(2) .detail .specifications,
+        .carousel.showDetail .list .item:nth-child(2) .detail .checkout {
+            opacity: 0;
+            animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .carousel.showDetail .list .item:nth-child(2) .detail .des { animation-delay: 0.2s; }
+        .carousel.showDetail .list .item:nth-child(2) .detail .specifications { animation-delay: 0.4s; }
+        .carousel.showDetail .list .item:nth-child(2) .detail .checkout { animation-delay: 0.6s; }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .carousel .list .item { width: 90%; }
+            .carousel .list .item .introduce .topic { font-size: 3rem; }
+            .carousel.showDetail .list .item:nth-child(2) .detail { padding: 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav { gap: 1rem; }
+
+            .carousel { 
+                height: 80vh; 
+                margin-top: 120px;
+            }
+
+            .carousel .list .item { width: 100%; }
+            .carousel .list .item:nth-child(2) .introduce { 
+                width: 90%; 
+                padding: 1rem;
+            }
+            .carousel .list .item .introduce .topic { font-size: 2.5rem; }
+            .carousel .list .item img { width: 40%; opacity: 0.3; }
+
+            .carousel.showDetail .list .item:nth-child(2) .detail {
+                width: 95%;
+                right: 2.5%;
+                padding: 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .carousel.showDetail .list .item:nth-child(2) .detail .title { font-size: 2rem; }
+            .carousel.showDetail .list .item:nth-child(2) .detail .specifications {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .arrows { 
+                bottom: 1rem; 
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel { height: 70vh; }
+            .carousel .list .item .introduce .topic { font-size: 2rem; }
+            .carousel.showDetail .list .item:nth-child(2) .detail .title { font-size: 1.5rem; }
+            .carousel.showDetail .list .item:nth-child(2) .checkout {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        /* RTL Support */
+        body.rtl .carousel .list .item:nth-child(2) .introduce {
+            right: 0;
+            left: auto;
+            text-align: right;
+        }
+
+        body.rtl .carousel .list .item img {
+            left: 0;
+            right: auto;
+        }
+
+        body.rtl .carousel.showDetail .list .item:nth-child(2) .detail {
+            left: 0;
+            right: auto;
+            text-align: left;
+        }
+
+        body.rtl header {
+            flex-direction: row-reverse;
+        }
+
+        body.rtl nav {
+            flex-direction: row-reverse;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Hamdy Dowidar 👨‍💻</div>
+        <nav>
+            <a href="#" class="nav-link">Home</a>
+            <a href="1.html" class="nav-link">Portfolio</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="about.html" class="nav-link">About</a>
+        </nav>
+        <div class="header-controls">
+            <button id="darkModeToggle" title="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button id="languageToggle" title="Toggle Language">EN/AR</button>
+        </div>
+    </header>
+
+    <div class="carousel">
+        <div class="list">
+            <div class="item">
+                <img src="v.png" alt="Video Editing">
+                <div class="introduce">
+                    <div class="title">PORTFOLIO</div>
+                    <div class="topic">Video Editing</div>
+                    <div class="des">
+                        Professional video editor with over 5 years of experience in Adobe Premiere Pro and After Effects. Specialized in video editing and color grading for various types of media.
+                    </div>
+                    <button class="seeMore">SEE MORE</button>
+                </div>
+                <div class="detail">
+                    <div class="title">Video Editing Services</div>
+                    <div class="des">
+                        I offer comprehensive video production services, including:<br><br>
+                        • Editing commercial advertisements<br>
+                        • Creating content for social media<br>
+                        • Editing documentary films<br><br>
+                        With a focus on detail, I transform raw footage into captivating visual stories.
+                    </div>
+                    <div class="specifications">
+                        <div>
+                            <p>Software</p>
+                            <p>Premiere Pro, AE, CapCut, DaVinci Resolve</p>
+                        </div>
+                        <div>
+                            <p>Experience</p>
+                            <p>5+ Years</p>
+                        </div>
+                        <div>
+                            <p>Projects</p>
+                            <p>100+</p>
+                        </div>
+                        <div>
+                            <p>Specialization</p>
+                            <p>Color Grading</p>
+                        </div>
+                    </div>
+                    <div class="checkout">
+                        <button>REQUEST QUOTE</button>
+                        <button>VIEW DEMOS</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="n.png" alt="Networking">
+                <div class="introduce">
+                    <div class="title">PORTFOLIO</div>
+                    <div class="topic">Networking</div>
+                    <div class="des">
+                        Military experience in networking, including device configuration, connecting to a local network, and building secure infrastructure for companies.
+                    </div>
+                    <button class="seeMore">SEE MORE</button>
+                </div>
+                <div class="detail">
+                    <div class="title">Network Solutions</div>
+                    <div class="des">
+                        During my military service, I gained extensive experience in networking, configuring and securing military devices across various battalions and departments.<br><br>
+                        I have the ability to connect devices within a unified local network and design and build secure, efficient network infrastructures that meet the needs of companies of all sizes.
+                    </div>
+                    <div class="specifications">
+                        <div>
+                            <p>Experience</p>
+                            <p>2+ Years</p>
+                        </div>
+                        <div>
+                            <p>Specialization</p>
+                            <p>Security</p>
+                        </div>
+                        <div>
+                            <p>Certification</p>
+                            <p>Military Grade</p>
+                        </div>
+                    </div>
+                    <div class="checkout">
+                        <button>REQUEST QUOTE</button>
+                        <button>VIEW SERVICES</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="aa.png" alt="AI Development">
+                <div class="introduce">
+                    <div class="title">PORTFOLIO</div>
+                    <div class="topic">AI Development</div>
+                    <div class="des">
+                        AI solutions developer specializing in creating intelligent systems, automation, and data-driven applications for various industries.
+                    </div>
+                    <button class="seeMore">SEE MORE</button>
+                </div>
+                <div class="detail">
+                    <div class="title">AI & Programming</div>
+                    <div class="des">
+                        Advanced AI development services including:<br><br>
+                        • Machine learning models<br>
+                        • Natural language processing<br>
+                        • Computer vision applications<br>
+                        • Predictive analytics<br>
+                        • Automation scripts<br>
+                        • Secure file hosting solutions<br><br>
+                        Creating innovative solutions that leverage cutting-edge AI technologies.
+                    </div>
+                    <div class="specifications">
+                        <div>
+                            <p>Languages</p>
+                            <p>Python, JavaScript</p>
+                        </div>
+                        <div>
+                            <p>Frameworks</p>
+                            <p>TensorFlow, PyTorch</p>
+                        </div>
+                        <div>
+                            <p>Experience</p>
+                            <p>4+ Years</p>
+                        </div>
+                        <div>
+                            <p>Specialization</p>
+                            <p>NLP, CV</p>
+                        </div>
+                        <div>
+                            <p>Security</p>
+                            <p>Encrypted Storage</p>
+                        </div>
+                    </div>
+                    <div class="checkout">
+                        <button>REQUEST PROJECT</button>
+                        <button>VIEW DEMOS</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="v.png" alt="Audio Engineering">
+                <div class="introduce">
+                    <div class="title">PORTFOLIO</div>
+                    <div class="topic">Audio Engineering</div>
+                    <div class="des">
+                        Professional audio engineer with expertise in sound design, mixing, mastering, and post-production for various media formats.
+                    </div>
+                    <button class="seeMore">SEE MORE</button>
+                </div>
+                <div class="detail">
+                    <div class="title">Audio Services</div>
+                    <div class="des">
+                        Comprehensive audio production services including:<br><br>
+                        • Sound design and effects<br>
+                        • Voice-over recording<br>
+                        • Audio mixing and mastering<br>
+                        • Noise reduction and cleanup<br>
+                        • Spatial audio for VR/AR<br><br>
+                        Delivering crystal clear audio quality for your projects.
+                    </div>
+                    <div class="specifications">
+                        <div>
+                            <p>Software</p>
+                            <p>Pro Tools, Audition</p>
+                        </div>
+                        <div>
+                            <p>Experience</p>
+                            <p>6+ Years</p>
+                        </div>
+                        <div>
+                            <p>Projects</p>
+                            <p>80+</p>
+                        </div>
+                        <div>
+                            <p>Specialization</p>
+                            <p>Post-Production</p>
+                        </div>
+                        <div>
+                            <p>Delivery</p>
+                            <p>24-bit Quality</p>
+                        </div>
+                    </div>
+                    <div class="checkout">
+                        <button>REQUEST SERVICE</button>
+                        <button>LISTEN SAMPLES</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="a.png" alt="Content Creation">
+                <div class="introduce">
+                    <div class="title">PORTFOLIO</div>
+                    <div class="topic">Content Creation</div>
+                    <div class="des">
+                        Creative content writer and scriptwriter specializing in engaging narratives for videos, ads, and digital media.
+                    </div>
+                    <button class="seeMore">SEE MORE</button>
+                </div>
+                <div class="detail">
+                    <div class="title">Writing Services</div>
+                    <div class="des">
+                        Professional writing services including:<br><br>
+                        • Video scriptwriting<br>
+                        • Advertising copywriting<br>
+                        • Blog content creation<br>
+                        • Social media content<br>
+                        • Technical documentation<br><br>
+                        Crafting compelling messages that resonate with your audience.
+                    </div>
+                    <div class="specifications">
+                        <div>
+                            <p>Languages</p>
+                            <p>English, Arabic</p>
+                        </div>
+                        <div>
+                            <p>Experience</p>
+                            <p>5+ Years</p>
+                        </div>
+                        <div>
+                            <p>Projects</p>
+                            <p>200+</p>
+                        </div>
+                        <div>
+                            <p>Specialization</p>
+                            <p>Video Scripts</p>
+                        </div>
+                        <div>
+                            <p>Style</p>
+                            <p>Engaging, Clear</p>
+                        </div>
+                    </div>
+                    <div class="checkout">
+                        <button>REQUEST QUOTE</button>
+                        <button>VIEW SAMPLES</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="aa.png" alt="Creative Solutions">
+                <div class="introduce">
+                    <div class="title">PORTFOLIO</div>
+                    <div class="topic">Creative Solutions</div>
+                    <div class="des">
+                        Innovative problem-solver combining technical expertise with creative thinking to deliver unique solutions.
+                    </div>
+                    <button class="seeMore">SEE MORE</button>
+                </div>
+                <div class="detail">
+                    <div class="title">Integrated Solutions</div>
+                    <div class="des">
+                        Comprehensive creative solutions combining:<br><br>
+                        • Technical implementation<br>
+                        • Creative direction<br>
+                        • Cross-platform integration<br>
+                        • User experience design<br>
+                        • Performance optimization<br><br>
+                        Leveraging diverse skills to create innovative, effective solutions.
+                    </div>
+                    <div class="specifications">
+                        <div>
+                            <p>Approach</p>
+                            <p>Holistic</p>
+                        </div>
+                        <div>
+                            <p>Experience</p>
+                            <p>8+ Years</p>
+                        </div>
+                        <div>
+                            <p>Projects</p>
+                            <p>150+</p>
+                        </div>
+                        <div>
+                            <p>Specialization</p>
+                            <p>Innovation</p>
+                        </div>
+                        <div>
+                            <p>Result</p>
+                            <p>Effective Solutions</p>
+                        </div>
+                    </div>
+                    <div class="checkout">
+                        <button>DISCUSS PROJECT</button>
+                        <button>VIEW CASE STUDIES</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="arrows">
+            <button id="prev" aria-label="Previous">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="next" aria-label="Next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <button id="back">
+                <i class="fas fa-arrow-left"></i>
+                See All
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // حماية متقدمة لمنع فتح أدوات المطورين
+        (function() {
+            'use strict';
+            
+            // منع فتح الأدوات نهائياً
+            function blockDevTools() {
+                // منع فتح الأدوات عن طريق F12 أو Ctrl+Shift+I أو Ctrl+Shift+J أو Ctrl+Shift+C أو Ctrl+U
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'F12' || 
+                        (e.ctrlKey && e.shiftKey && e.key === 'I') || 
+                        (e.ctrlKey && e.shiftKey && e.key === 'J') || 
+                        (e.ctrlKey && e.shiftKey && e.key === 'C') || 
+                        (e.ctrlKey && e.key === 'U') ||
+                        (e.key === 'F5' && e.ctrlKey) ||
+                        (e.key === 'F5' && e.shiftKey)) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        e.stopImmediatePropagation();
+                        return false;
+                    }
+                });
+                
+                // منع النقر بزر الماوس الأيمن
+                document.addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                // منع سحب المحتوى
+                document.addEventListener('dragstart', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                // منع اختيار النص
+                document.addEventListener('selectstart', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+            }
+            
+            // تشغيل الحماية عند تحميل الصفحة
+            window.addEventListener('load', blockDevTools);
+            window.addEventListener('DOMContentLoaded', blockDevTools);
+        })();
+        // DOM Elements
+        let nextButton = document.getElementById('next');
+        let prevButton = document.getElementById('prev');
+        let carousel = document.querySelector('.carousel');
+        let listHTML = document.querySelector('.carousel .list');
+        let seeMoreButtons = document.querySelectorAll('.seeMore');
+        let backButton = document.getElementById('back');
+        let languageToggle = document.getElementById('languageToggle');
+        let darkModeToggle = document.getElementById('darkModeToggle');
+
+        // State variables
+        let currentLanguage = 'en';
+        let isDarkMode = false;
+
+        // Multi-language content
+        const content = {
+            en: {
+                header: {
+                    logo: "Hamdy Dowidar 👨‍💻",
+                    home: "Home",
+                    portfolio: "Portfolio",
+                    contact: "Contact",
+                    about: "About"
+                },
+                carouselItems: {
+                    videoEditing: {
+                        title: "PORTFOLIO",
+                        topic: "Video Editing",
+                        des: "Professional video editor with over 5 years of experience in Adobe Premiere Pro and After Effects. Specialized in video editing and color grading for various types of media.",
+                        detailTitle: "Video Editing Services",
+                        detailDes: "I offer comprehensive video production services, including:<br><br>• Editing commercial advertisements<br>• Creating content for social media<br>• Editing documentary films<br><br>With a focus on detail, I transform raw footage into captivating visual stories.",
+                        specs: [
+                            { name: "Software", value: "Premiere Pro, AE, CapCut, DaVinci Resolve" },
+                            { name: "Experience", value: "5+ Years" },
+                            { name: "Projects", value: "100+" },
+                            { name: "Specialization", value: "Color Grading" }
+                        ],
+                        buttons: ["REQUEST QUOTE", "VIEW DEMOS"]
+                    },
+                    networking: {
+                        title: "PORTFOLIO",
+                        topic: "Networking",
+                        des: "Military experience in networking, including device configuration, connecting to a local network, and building secure infrastructure for companies.",
+                        detailTitle: "Network Solutions",
+                        detailDes: "During my military service, I gained extensive experience in networking, configuring and securing military devices across various battalions and departments.<br><br>I have the ability to connect devices within a unified local network and design and build secure, efficient network infrastructures that meet the needs of companies of all sizes.",
+                        specs: [
+                            { name: "Experience", value: "2+ Years" },
+                            { name: "Specialization", value: "Security" },
+                            { name: "Certification", value: "Military Grade" }
+                        ],
+                        buttons: ["REQUEST QUOTE", "VIEW SERVICES"]
+                    },
+                    aiDevelopment: {
+                        title: "PORTFOLIO",
+                        topic: "AI Development",
+                        des: "AI solutions developer specializing in creating intelligent systems, automation, and data-driven applications for various industries.",
+                        detailTitle: "AI & Programming",
+                        detailDes: "Advanced AI development services including:<br><br>• Machine learning models<br>• Natural language processing<br>• Computer vision applications<br>• Predictive analytics<br>• Automation scripts<br>• Secure file hosting solutions<br><br>Creating innovative solutions that leverage cutting-edge AI technologies.",
+                        specs: [
+                            { name: "Languages", value: "Python, JavaScript" },
+                            { name: "Frameworks", value: "TensorFlow, PyTorch" },
+                            { name: "Experience", value: "4+ Years" },
+                            { name: "Specialization", value: "NLP, CV" },
+                            { name: "Security", value: "Encrypted Storage" }
+                        ],
+                        buttons: ["REQUEST PROJECT", "VIEW DEMOS"]
+                    },
+                    audioEngineering: {
+                        title: "PORTFOLIO",
+                        topic: "Audio Engineering",
+                        des: "Professional audio engineer with expertise in sound design, mixing, mastering, and post-production for various media formats.",
+                        detailTitle: "Audio Services",
+                        detailDes: "Comprehensive audio production services including:<br><br>• Sound design and effects<br>• Voice-over recording<br>• Audio mixing and mastering<br>• Noise reduction and cleanup<br>• Spatial audio for VR/AR<br><br>Delivering crystal clear audio quality for your projects.",
+                        specs: [
+                            { name: "Software", value: "Pro Tools, Audition" },
+                            { name: "Experience", value: "6+ Years" },
+                            { name: "Projects", value: "80+" },
+                            { name: "Specialization", value: "Post-Production" },
+                            { name: "Delivery", value: "24-bit Quality" }
+                        ],
+                        buttons: ["REQUEST SERVICE", "LISTEN SAMPLES"]
+                    },
+                    contentCreation: {
+                        title: "PORTFOLIO",
+                        topic: "Content Creation",
+                        des: "Creative content writer and scriptwriter specializing in engaging narratives for videos, ads, and digital media.",
+                        detailTitle: "Writing Services",
+                        detailDes: "Professional writing services including:<br><br>• Video scriptwriting<br>• Advertising copywriting<br>• Blog content creation<br>• Social media content<br>• Technical documentation<br><br>Crafting compelling messages that resonate with your audience.",
+                        specs: [
+                            { name: "Languages", value: "English, Arabic" },
+                            { name: "Experience", value: "5+ Years" },
+                            { name: "Projects", value: "200+" },
+                            { name: "Specialization", value: "Video Scripts" },
+                            { name: "Style", value: "Engaging, Clear" }
+                        ],
+                        buttons: ["REQUEST QUOTE", "VIEW SAMPLES"]
+                    },
+                    creativeSolutions: {
+                        title: "PORTFOLIO",
+                        topic: "Creative Solutions",
+                        des: "Innovative problem-solver combining technical expertise with creative thinking to deliver unique solutions.",
+                        detailTitle: "Integrated Solutions",
+                        detailDes: "Comprehensive creative solutions combining:<br><br>• Technical implementation<br>• Creative direction<br>• Cross-platform integration<br>• User experience design<br>• Performance optimization<br><br>Leveraging diverse skills to create innovative, effective solutions.",
+                        specs: [
+                            { name: "Approach", value: "Holistic" },
+                            { name: "Experience", value: "8+ Years" },
+                            { name: "Projects", value: "150+" },
+                            { name: "Specialization", value: "Innovation" },
+                            { name: "Result", value: "Effective Solutions" }
+                        ],
+                        buttons: ["DISCUSS PROJECT", "VIEW CASE STUDIES"]
+                    }
+                },
+                buttons: {
+                    seeMore: "SEE MORE",
+                    back: "See All"
+                }
+            },
+            ar: {
+                header: {
+                    logo: "حمدي دويدار 👨‍💻",
+                    home: "الرئيسية",
+                    portfolio: "الأعمال",
+                    contact: "اتصل بنا",
+                    about: "حول"
+                },
+                carouselItems: {
+                    videoEditing: {
+                        title: "حافظة أعمال",
+                        topic: "المونتاج الفيديوي",
+                        des: "محرر فيديو محترف بخبرة تزيد عن 5 سنوات في أدوبي بريمير برو وأفتر إفكتس. متخصص في تحرير الفيديو وتدرج الألوان لأنواع مختلفة من الوسائط.",
+                        detailTitle: "خدمات المونتاج الفيديوي",
+                        detailDes: "أقدم خدمات إنتاج فيديو شاملة تشمل:<br><br>• تحرير الإعلانات التجارية<br>• إنشاء محتوى لوسائل التواصل الاجتماعي<br>• تحرير الأفلام الوثائقية<br><br>مع التركيز على التفاصيل، أقوم بتحويل اللقطات الخام إلى قصص بصرية جذابة.",
+                        specs: [
+                            { name: "البرامج", value: "بريمير برو، أفتر إفكتس، كاب كت، دافنشي ريزولف" },
+                            { name: "الخبرة", value: "5+ سنوات" },
+                            { name: "المشاريع", value: "100+" },
+                            { name: "التخصص", value: "تدرج الألوان" }
+                        ],
+                        buttons: ["طلب عرض سعر", "عرض نماذج"]
+                    },
+                    networking: {
+                        title: "حافظة أعمال",
+                        topic: "الشبكات",
+                        des: "خبرة عسكرية في مجال الشبكات، بما في ذلك تكوين الأجهزة، الاتصال بالشبكة المحلية، وبناء بنية تحتية آمنة للشركات.",
+                        detailTitle: "حلول الشبكات",
+                        detailDes: "خلال خدمتي العسكرية، اكتسبت خبرة واسعة في مجال الشبكات، وتكوين وتأمين الأجهزة العسكرية عبر مختلف الكتائب والإدارات.<br><br>لدي القدرة على توصيل الأجهزة ضمن شبكة محلية موحدة وتصميم وبناء بنى تحتية للشبكات آمنة وفعالة تلبي احتياجات الشركات من جميع الأحجام.",
+                        specs: [
+                            { name: "الخبرة", value: "2+ سنوات" },
+                            { name: "التخصص", value: "الأمان" },
+                            { name: "الشهادة", value: "عسكرية" }
+                        ],
+                        buttons: ["طلب عرض سعر", "عرض الخدمات"]
+                    },
+                    aiDevelopment: {
+                        title: "حافظة أعمال",
+                        topic: "تطوير الذكاء الاصطناعي",
+                        des: "مطور حلول ذكاء اصطناعي متخصص في إنشاء أنظمة ذكية وأتمتة وتطبيقات تعتمد على البيانات لمختلف الصناعات.",
+                        detailTitle: "الذكاء الاصطناعي والبرمجة",
+                        detailDes: "خدمات متقدمة لتطوير الذكاء الاصطناعي تشمل:<br><br>• نماذج التعلم الآلي<br>• معالجة اللغة الطبيعية<br>• تطبيقات رؤية الحاسوب<br>• التحليلات التنبؤية<br>• نصوص الأتمتة<br>• حلول استضافة الملفات الآمنة<br><br>إنشاء حلول مبتكرة تستفيد من أحدث تقنيات الذكاء الاصطناعي.",
+                        specs: [
+                            { name: "لغات البرمجة", value: "بايثون، جافا سكريبت" },
+                            { name: "أطر العمل", value: "تنسورفلو، بايتورش" },
+                            { name: "الخبرة", value: "4+ سنوات" },
+                            { name: "التخصص", value: "معالجة اللغة، رؤية الحاسوب" },
+                            { name: "الأمان", value: "تخزين مشفر" }
+                        ],
+                        buttons: ["طلب مشروع", "عرض تجريبي"]
+                    },
+                    audioEngineering: {
+                        title: "حافظة أعمال",
+                        topic: "هندسة الصوت",
+                        des: "مهندس صوت محترف متخصص في تصميم الصوت، المزج، الماسترينغ، وما بعد الإنتاج لتنسيقات الوسائط المختلفة.",
+                        detailTitle: "خدمات الصوت",
+                        detailDes: "خدمات إنتاج صوت شاملة تشمل:<br><br>• تصميم الصوت والمؤثرات<br>• تسجيل التعليق الصوتي<br>• مزج الصوت وماسترينغ<br>• تقليل الضوضاء وتنظيف الصوت<br>• الصوت المكاني للواقع الافتراضي/المعزز<br><br>توصيل جودة صوت واضحة لمشاريعك.",
+                        specs: [
+                            { name: "البرامج", value: "برو تولز، أدوبيشن" },
+                            { name: "الخبرة", value: "6+ سنوات" },
+                            { name: "المشاريع", value: "80+" },
+                            { name: "التخصص", value: "ما بعد الإنتاج" },
+                            { name: "التسليم", value: "جودة 24-بت" }
+                        ],
+                        buttons: ["طلب الخدمة", "سماع عينات"]
+                    },
+                    contentCreation: {
+                        title: "حافظة أعمال",
+                        topic: "إنشاء المحتوى",
+                        des: "كاتب محتوى إبداعي وكاتب سيناريو متخصص في سرد القصص الجذابة للفيديوهات والإعلانات والوسائط الرقمية.",
+                        detailTitle: "خدمات الكتابة",
+                        detailDes: "خدمات كتابة محترفة تشمل:<br><br>• كتابة سيناريوهات الفيديو<br>• كتابة نصوص الإعلانات<br>• إنشاء محتوى المدونات<br>• محتوى وسائل التواصل الاجتماعي<br>• الوثائق الفنية<br><br>صياغة رسائل مقنعة تلقى صدى لدى جمهورك.",
+                        specs: [
+                            { name: "اللغات", value: "الإنجليزية، العربية" },
+                            { name: "الخبرة", value: "5+ سنوات" },
+                            { name: "المشاريع", value: "200+" },
+                            { name: "التخصص", value: "سيناريوهات الفيديو" },
+                            { name: "الأسلوب", value: "جذاب، واضح" }
+                        ],
+                        buttons: ["طلب عرض سعر", "عرض نماذج"]
+                    },
+                    creativeSolutions: {
+                        title: "حافظة أعمال",
+                        topic: "الحلول الإبداعية",
+                        des: "حلال مشكلات مبتكر يجمع بين الخبرة الفنية والتفكير الإبداعي لتقديم حلول فريدة.",
+                        detailTitle: "حلول متكاملة",
+                        detailDes: "حلول إبداعية شاملة تجمع بين:<br><br>• التنفيذ الفني<br>• التوجيه الإبداعي<br>• التكامل عبر المنصات<br>• تصميم تجربة المستخدم<br>• تحسين الأداء<br><br>الاستفادة من مهارات متنوعة لإنشاء حلول مبتكرة وفعالة.",
+                        specs: [
+                            { name: "النهج", value: "شامل" },
+                            { name: "الخبرة", value: "8+ سنوات" },
+                            { name: "المشاريع", value: "150+" },
+                            { name: "التخصص", value: "الابتكار" },
+                            { name: "النتيجة", value: "حلول فعالة" }
+                        ],
+                        buttons: ["مناقشة المشروع", "عرض دراسات الحالة"]
+                    }
+                },
+                buttons: {
+                    seeMore: "عرض المزيد",
+                    back: "عرض الكل"
+                }
+            }
+        };
+
+        // DOM elements to translate
+        const elementsToTranslate = {
+            header: {
+                logo: document.querySelector('.logo'),
+                links: document.querySelectorAll('nav a')
+            },
+            carouselItems: document.querySelectorAll('.carousel .list .item'),
+            arrows: {
+                back: document.getElementById('back')
+            }
+        };
+
+        // Update content based on current language
+        function updateContent() {
+            const currentContent = content[currentLanguage];
+            
+            // Update header
+            elementsToTranslate.header.logo.textContent = currentContent.header.logo;
+            elementsToTranslate.header.links[0].textContent = currentContent.header.home;
+            elementsToTranslate.header.links[1].textContent = currentContent.header.portfolio;
+            elementsToTranslate.header.links[2].textContent = currentContent.header.contact;
+            elementsToTranslate.header.links[3].textContent = currentContent.header.about;
+
+            // Update carousel items
+            const itemTypes = ['videoEditing', 'networking', 'aiDevelopment', 'audioEngineering', 'contentCreation', 'creativeSolutions'];
+            
+            elementsToTranslate.carouselItems.forEach((item, index) => {
+                if (index >= itemTypes.length) return;
+                
+                const itemType = itemTypes[index];
+                const itemContent = currentContent.carouselItems[itemType];
+                
+                // Update main content
+                const introduce = item.querySelector('.introduce');
+                if (introduce) {
+                    introduce.querySelector('.title').textContent = itemContent.title;
+                    introduce.querySelector('.topic').textContent = itemContent.topic;
+                    introduce.querySelector('.des').textContent = itemContent.des;
+                    const seeMoreBtn = introduce.querySelector('.seeMore');
+                    if (seeMoreBtn) seeMoreBtn.textContent = currentContent.buttons.seeMore;
+                }
+
+                // Update detail content
+                const detail = item.querySelector('.detail');
+                if (detail) {
+                    detail.querySelector('.title').textContent = itemContent.detailTitle;
+                    detail.querySelector('.des').innerHTML = itemContent.detailDes;
+                    
+                    // Update specifications
+                    const specsContainer = detail.querySelector('.specifications');
+                    if (specsContainer) {
+                        specsContainer.innerHTML = '';
+                        itemContent.specs.forEach(spec => {
+                            const specDiv = document.createElement('div');
+                            specDiv.innerHTML = `<p>${spec.name}</p><p>${spec.value}</p>`;
+                            specsContainer.appendChild(specDiv);
+                        });
+                    }
+
+                    // Update buttons
+                    const buttons = detail.querySelector('.checkout');
+                    if (buttons && itemContent.buttons.length >= 2) {
+                        buttons.innerHTML = '';
+                        const button1 = document.createElement('button');
+                        button1.textContent = itemContent.buttons[0];
+                        buttons.appendChild(button1);
+                        
+                        const button2 = document.createElement('button');
+                        button2.textContent = itemContent.buttons[1];
+                        buttons.appendChild(button2);
+                    }
+                }
+            });
+
+            // Update back button
+            const backText = backButton.querySelector('span') || document.createElement('span');
+            backText.textContent = currentContent.buttons.back;
+            if (!backButton.querySelector('span')) {
+                backButton.appendChild(backText);
+            }
+            
+            // Update page direction
+            document.documentElement.lang = currentLanguage;
+            document.body.style.direction = currentLanguage === 'ar' ? 'rtl' : 'ltr';
+            document.body.classList.toggle('rtl', currentLanguage === 'ar');
+        }
+
+        // Toggle language
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'en' ? 'ar' : 'en';
+            updateContent();
+            localStorage.setItem('language', currentLanguage);
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            isDarkMode = !isDarkMode;
+            if (isDarkMode) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Check saved preferences
+        function checkPreferences() {
+            // Language
+            const savedLanguage = localStorage.getItem('language');
+            if (savedLanguage) {
+                currentLanguage = savedLanguage;
+            }
+            
+            // Dark mode
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                isDarkMode = true;
+                document.documentElement.setAttribute('data-theme', 'dark');
+                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+        }
+
+        // Carousel functionality
+        let unAcceptClick;
+        const showSlider = (type) => {
+            nextButton.style.pointerEvents = 'none';
+            prevButton.style.pointerEvents = 'none';
+
+            carousel.classList.remove('next', 'prev');
+            let items = document.querySelectorAll('.carousel .list .item');
+            
+            if (type === 'next') {
+                listHTML.appendChild(items[0]);
+                carousel.classList.add('next');
+            } else {
+                listHTML.prepend(items[items.length - 1]);
+                carousel.classList.add('prev');
+            }
+            
+            clearTimeout(unAcceptClick);
+            unAcceptClick = setTimeout(() => {
+                nextButton.style.pointerEvents = 'auto';
+                prevButton.style.pointerEvents = 'auto';
+            }, 2000);
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            checkPreferences();
+            updateContent();
+            
+            // Event listeners
+            languageToggle.addEventListener('click', toggleLanguage);
+            darkModeToggle.addEventListener('click', toggleDarkMode);
+            nextButton.addEventListener('click', () => showSlider('next'));
+            prevButton.addEventListener('click', () => showSlider('prev'));
+
+            // See more buttons
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('seeMore')) {
+                    carousel.classList.remove('next', 'prev');
+                    carousel.classList.add('showDetail');
+                }
+            });
+
+            backButton.addEventListener('click', () => {
+                carousel.classList.remove('showDetail');
+            });
+        });
+    </script>
+</body>
+</html>
