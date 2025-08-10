@@ -1,5 +1,4 @@
-
-       <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -146,7 +145,7 @@
             margin-left: 30px;
         }
 
-        #darkModeToggle, #languageToggle {
+        #darkModeToggle {
             background: transparent;
             border: none;
             cursor: pointer;
@@ -154,9 +153,6 @@
             align-items: center;
             justify-content: center;
             transition: var(--transition);
-        }
-
-        #darkModeToggle {
             color: var(--text-color);
             font-size: 1.2rem;
             width: 36px;
@@ -166,20 +162,6 @@
 
         #darkModeToggle:hover {
             background: rgba(105, 62, 255, 0.1);
-        }
-
-        #languageToggle {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        #languageToggle:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-2px);
         }
 
         /* Floating Elements */
@@ -483,74 +465,6 @@
             transition: width 0.3s ease;
         }
 
-        /* RTL Support */
-        .rtl {
-            direction: rtl;
-        }
-
-        .rtl .logo {
-            flex-direction: row-reverse;
-        }
-
-        .rtl nav {
-            flex-direction: row-reverse;
-        }
-
-        .rtl .header-buttons {
-            margin-left: 0;
-            margin-right: 30px;
-        }
-
-        .rtl .section-header {
-            flex-direction: row-reverse;
-            text-align: right;
-        }
-
-        .rtl .section-content {
-            text-align: right;
-        }
-
-        .rtl .section-content li {
-            padding: 10px 30px 10px 0;
-        }
-
-        .rtl .section-content li::before {
-            right: 0;
-            left: auto;
-        }
-
-        .rtl .section-content li:hover {
-            padding-right: 35px;
-            padding-left: 0;
-        }
-
-        .rtl .download-btn, .rtl .portfolio-btn {
-            flex-direction: row-reverse;
-        }
-
-        .rtl .floating-element.element-1 {
-            left: auto;
-            right: 10%;
-        }
-
-        .rtl .floating-element.element-2 {
-            right: auto;
-            left: 10%;
-        }
-
-        .rtl .floating-element.element-3 {
-            left: auto;
-            right: 5%;
-        }
-
-        /* RTL Typography */
-        .rtl h1, .rtl h2, .rtl h3, .rtl h4 {
-            font-family: 'Cairo', 'Montserrat', sans-serif;
-        }
-
-        .rtl p, .rtl li {
-            font-family: 'Tajawal', 'Poppins', sans-serif;
-        }
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -629,11 +543,10 @@
         <nav>
             <a href="index.html" class="nav-link">Home</a>
             <a href="1.html" class="nav-link">Portfolio</a>
-            <a href="about.html" class="nav-link">About</a>
+            <a href="about.html" class="nav-link active">About</a>
             <a href="contact.html" class="nav-link">Contact</a>
-            <button id="darkModeToggle" title="Dark Mode"><i class="fas fa-moon"></i></button>
             <div class="header-buttons">
-        
+                <button id="darkModeToggle" title="Dark Mode"><i class="fas fa-moon"></i></button>
             </div>
         </nav>
     </header>
@@ -828,265 +741,6 @@
             document.documentElement.setAttribute('data-theme', 'dark');
             darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
         }
-        
-        // Translation System
-        const translations = {
-            en: {
-                // Navigation
-                home: "Home",
-                portfolio: "Portfolio",
-                contact: "Contact",
-                
-                // Hero Section
-                aboutTitle: "About Me",
-                aboutSubtitle: "Creative Solutions Expert with diverse skills in multimedia, technology, and innovation",
-                
-                // Video Editing Section
-                videoEditingTitle: "Video Editing",
-                videoEditingDesc: "With over 5 years of experience in video editing, I've worked with educational platforms, marketing companies, and as a freelancer in various markets including Egypt, Gulf countries, and Tanzania.",
-                videoEditingSkill1: "Proficient in Adobe Premiere Pro, After Effects, CapCut, and DaVinci Resolve",
-                videoEditingSkill2: "Created promotional videos, reels, and visual hooks for restaurants, hotels, hospitals, gyms, and sports equipment",
-                videoEditingSkill3: "Specialized in transforming raw footage into captivating visual stories",
-                videoEditingSkill4: "Freelance experience in Egyptian, Gulf, and Tanzanian markets",
-                
-                // Networking Section
-                networkingTitle: "Networking",
-                networkingDesc: "Selected for networking during military service, gaining over 3 years of experience in managing and maintaining local networks.",
-                networkingSkill1: "Worked with military departments, clubs, and training centers",
-                networkingSkill2: "Designed and implemented efficient networks using switches",
-                networkingSkill3: "Created a local network for an educational platform to facilitate data transfer",
-                networkingSkill4: "Specialized in network infrastructure setup and performance optimization",
-                
-                // AI Web Development Section
-                aiWebTitle: "AI Web Development",
-                aiWebDesc: "Over 4 years of experience in AI-powered web design and development, with expertise in HTML, JavaScript, and CSS.",
-                aiWebSkill1: "Developed websites for various sectors including marketing sites, attendance systems, and salon websites",
-                aiWebSkill2: "Specialized in programming smart accessories like business cards, rings, necklaces, and acrylic displays",
-                aiWebSkill3: "Ability to understand and modify code to meet client requirements",
-                aiWebSkill4: "Focus on user experience and device compatibility",
-                
-                // Audio Engineering Section
-                audioTitle: "Audio Engineering",
-                audioDesc: "Professional audio engineer with over 5 years of experience producing music, songs, and audio recordings.",
-                audioSkill1: "Worked with smart accessories, educational platforms, learning centers, and programming companies",
-                audioSkill2: "Skills include audio quality enhancement and sound processing",
-                audioSkill3: "Produced educational recordings and sound effects for apps and websites",
-                audioSkill4: "Uses latest technologies to deliver industry-standard audio content",
-                
-                // Content Creation Section
-                contentTitle: "Content Creation",
-                contentDesc: "Creative content writer and scriptwriter specializing in engaging narratives for videos, ads, and digital media.",
-                contentSkill1: "Executed projects including voice-over scripts and innovative editing ideas",
-                contentSkill2: "Worked with educational platforms and marketing companies",
-                contentSkill3: "Specialized in understanding target audience needs",
-                contentSkill4: "Focus on merging creativity with strategic goals",
-                
-                // Creative Solutions Section
-                creativeSolutionsTitle: "Creative Solutions",
-                creativeSolutionsDesc: "Innovative problem-solver offering creative solutions by combining technical expertise with creative thinking.",
-                creativeSolutionsSkill1: "Worked on diverse projects including educational platforms and smart accessories",
-                creativeSolutionsSkill2: "Expertise in analyzing technical and creative challenges",
-                creativeSolutionsSkill3: "Develops customized strategies and effective solutions",
-                creativeSolutionsSkill4: "Focus on out-of-the-box thinking balanced with technical efficiency",
-                
-                // Download & Portfolio Sections
-                downloadTitle: "Download My Resume",
-                downloadDesc: "Get a comprehensive overview of my skills and experience in PDF format.",
-                downloadBtn: "Download PDF",
-                portfolioTitle: "Explore My Portfolio",
-                portfolioDesc: "Check out some of my best work across all my areas of expertise.",
-                portfolioBtn: "View Portfolio"
-            },
-            ar: {
-                // Navigation
-                home: "الرئيسية",
-                portfolio: "معرض الأعمال",
-                contact: "التواصل",
-                
-                // Hero Section
-                aboutTitle: "نبذة عني",
-                aboutSubtitle: "خبير في الحلول الإبداعية مع مهارات متنوعة في الوسائط المتعددة والتكنولوجيا والابتكار",
-                
-                // Video Editing Section
-                videoEditingTitle: "مونتاج الفيديو",
-                videoEditingDesc: "مع أكثر من 5 سنوات من الخبرة في مونتاج الفيديو، عملت مع المنصات التعليمية وشركات التسويق وكمستقل في أسواق مختلفة تشمل مصر ودول الخليج وتنزانيا.",
-                videoEditingSkill1: "إتقان Adobe Premiere Pro و After Effects و CapCut و DaVinci Resolve",
-                videoEditingSkill2: "إنشاء فيديوهات ترويجية وريلز وخطافات بصرية للمطاعم والفنادق والمستشفيات والصالات الرياضية ومعدات الرياضة",
-                videoEditingSkill3: "متخصص في تحويل اللقطات الخام إلى قصص بصرية جذابة",
-                videoEditingSkill4: "خبرة في العمل الحر في الأسواق المصرية والخليجية والتنزانية",
-                
-                // Networking Section
-                networkingTitle: "الشبكات",
-                networkingDesc: "تم اختياري للعمل في الشبكات أثناء الخدمة العسكرية، اكتسبت أكثر من 3 سنوات من الخبرة في إدارة وصيانة الشبكات المحلية.",
-                networkingSkill1: "عملت مع الإدارات العسكرية والأندية ومراكز التدريب",
-                networkingSkill2: "تصميم وتنفيذ شبكات فعالة باستخدام المفاتيح",
-                networkingSkill3: "إنشاء شبكة محلية لمنصة تعليمية لتسهيل نقل البيانات",
-                networkingSkill4: "متخصص في إعداد البنية التحتية للشبكات وتحسين الأداء",
-                
-                // AI Web Development Section
-                aiWebTitle: "تطوير المواقع بالذكاء الاصطناعي",
-                aiWebDesc: "أكثر من 4 سنوات من الخبرة في تصميم وتطوير المواقع المدعومة بالذكاء الاصطناعي، مع خبرة في HTML و JavaScript و CSS.",
-                aiWebSkill1: "تطوير مواقع لقطاعات مختلفة تشمل مواقع التسويق وأنظمة الحضور ومواقع الصالونات",
-                aiWebSkill2: "متخصص في برمجة الإكسسوارات الذكية مثل بطاقات العمل والخواتم والقلائد وشاشات الأكريليك",
-                aiWebSkill3: "القدرة على فهم وتعديل الكود لتلبية متطلبات العملاء",
-                aiWebSkill4: "التركيز على تجربة المستخدم وتوافق الأجهزة",
-                
-                // Audio Engineering Section
-                audioTitle: "هندسة الصوت",
-                audioDesc: "مهندس صوت محترف مع أكثر من 5 سنوات من الخبرة في إنتاج الموسيقى والأغاني والتسجيلات الصوتية.",
-                audioSkill1: "عملت مع الإكسسوارات الذكية والمنصات التعليمية ومراكز التعلم وشركات البرمجة",
-                audioSkill2: "المهارات تشمل تحسين جودة الصوت ومعالجة الصوت",
-                audioSkill3: "إنتاج تسجيلات تعليمية ومؤثرات صوتية للتطبيقات والمواقع",
-                audioSkill4: "استخدام أحدث التقنيات لتقديم محتوى صوتي بمعايير الصناعة",
-                
-                // Content Creation Section
-                contentTitle: "إنشاء المحتوى",
-                contentDesc: "كاتب محتوى إبداعي وكاتب سيناريو متخصص في السرد الجذاب للفيديوهات والإعلانات والوسائط الرقمية.",
-                contentSkill1: "تنفيذ مشاريع تشمل سكريبتات التعليق الصوتي وأفكار المونتاج المبتكرة",
-                contentSkill2: "عملت مع المنصات التعليمية وشركات التسويق",
-                contentSkill3: "متخصص في فهم احتياجات الجمهور المستهدف",
-                contentSkill4: "التركيز على دمج الإبداع مع الأهداف الاستراتيجية",
-                
-                // Creative Solutions Section
-                creativeSolutionsTitle: "الحلول الإبداعية",
-                creativeSolutionsDesc: "حلال مشاكل مبتكر يقدم حلولاً إبداعية من خلال الجمع بين الخبرة التقنية والتفكير الإبداعي.",
-                creativeSolutionsSkill1: "عملت على مشاريع متنوعة تشمل المنصات التعليمية والإكسسوارات الذكية",
-                creativeSolutionsSkill2: "خبرة في تحليل التحديات التقنية والإبداعية",
-                creativeSolutionsSkill3: "تطوير استراتيجيات مخصصة وحلول فعالة",
-                creativeSolutionsSkill4: "التركيز على التفكير خارج الصندوق متوازن مع الكفاءة التقنية",
-                
-                // Download & Portfolio Sections
-                downloadTitle: "تحميل السيرة الذاتية",
-                downloadDesc: "احصل على نظرة شاملة على مهاراتي وخبرتي بصيغة PDF.",
-                downloadBtn: "تحميل PDF",
-                portfolioTitle: "استكشف معرض أعمالي",
-                portfolioDesc: "اطلع على بعض من أفضل أعمالي في جميع مجالات خبرتي.",
-                portfolioBtn: "عرض معرض الأعمال"
-            }
-        };
-
-        let currentLanguage = 'en';
-
-        function updateContent(lang) {
-            const trans = translations[lang];
-            
-            // Navigation
-            document.querySelector('a[href="index.html"]').textContent = trans.home;
-            document.querySelector('a[href="1.html"]').textContent = trans.portfolio;
-            document.querySelector('a[href="contact.html"]').textContent = trans.contact;
-            
-            // Hero Section
-            document.querySelector('.about-title').textContent = trans.aboutTitle;
-            document.querySelector('.about-subtitle').textContent = trans.aboutSubtitle;
-            
-            // Video Editing Section
-            const videoSection = document.querySelectorAll('.about-section')[0];
-            videoSection.querySelector('h2').textContent = trans.videoEditingTitle;
-            videoSection.querySelector('p').textContent = trans.videoEditingDesc;
-            const videoSkills = videoSection.querySelectorAll('li');
-            videoSkills[0].textContent = trans.videoEditingSkill1;
-            videoSkills[1].textContent = trans.videoEditingSkill2;
-            videoSkills[2].textContent = trans.videoEditingSkill3;
-            videoSkills[3].textContent = trans.videoEditingSkill4;
-            
-            // Networking Section
-            const networkSection = document.querySelectorAll('.about-section')[1];
-            networkSection.querySelector('h2').textContent = trans.networkingTitle;
-            networkSection.querySelector('p').textContent = trans.networkingDesc;
-            const networkSkills = networkSection.querySelectorAll('li');
-            networkSkills[0].textContent = trans.networkingSkill1;
-            networkSkills[1].textContent = trans.networkingSkill2;
-            networkSkills[2].textContent = trans.networkingSkill3;
-            networkSkills[3].textContent = trans.networkingSkill4;
-            
-            // AI Web Development Section
-            const aiWebSection = document.querySelectorAll('.about-section')[2];
-            aiWebSection.querySelector('h2').textContent = trans.aiWebTitle;
-            aiWebSection.querySelector('p').textContent = trans.aiWebDesc;
-            const aiWebSkills = aiWebSection.querySelectorAll('li');
-            aiWebSkills[0].textContent = trans.aiWebSkill1;
-            aiWebSkills[1].textContent = trans.aiWebSkill2;
-            aiWebSkills[2].textContent = trans.aiWebSkill3;
-            aiWebSkills[3].textContent = trans.aiWebSkill4;
-            
-            // Audio Engineering Section
-            const audioSection = document.querySelectorAll('.about-section')[3];
-            audioSection.querySelector('h2').textContent = trans.audioTitle;
-            audioSection.querySelector('p').textContent = trans.audioDesc;
-            const audioSkills = audioSection.querySelectorAll('li');
-            audioSkills[0].textContent = trans.audioSkill1;
-            audioSkills[1].textContent = trans.audioSkill2;
-            audioSkills[2].textContent = trans.audioSkill3;
-            audioSkills[3].textContent = trans.audioSkill4;
-            
-            // Content Creation Section
-            const contentSection = document.querySelectorAll('.about-section')[4];
-            contentSection.querySelector('h2').textContent = trans.contentTitle;
-            contentSection.querySelector('p').textContent = trans.contentDesc;
-            const contentSkills = contentSection.querySelectorAll('li');
-            contentSkills[0].textContent = trans.contentSkill1;
-            contentSkills[1].textContent = trans.contentSkill2;
-            contentSkills[2].textContent = trans.contentSkill3;
-            contentSkills[3].textContent = trans.contentSkill4;
-            
-            // Creative Solutions Section
-            const creativeSection = document.querySelectorAll('.about-section')[5];
-            creativeSection.querySelector('h2').textContent = trans.creativeSolutionsTitle;
-            creativeSection.querySelector('p').textContent = trans.creativeSolutionsDesc;
-            const creativeSkills = creativeSection.querySelectorAll('li');
-            creativeSkills[0].textContent = trans.creativeSolutionsSkill1;
-            creativeSkills[1].textContent = trans.creativeSolutionsSkill2;
-            creativeSkills[2].textContent = trans.creativeSolutionsSkill3;
-            creativeSkills[3].textContent = trans.creativeSolutionsSkill4;
-            
-            // Download Section
-            document.querySelector('.download-section h2').textContent = trans.downloadTitle;
-            document.querySelector('.download-section p').textContent = trans.downloadDesc;
-            document.querySelector('.download-btn').innerHTML = `<i class="fas fa-file-pdf"></i> ${trans.downloadBtn}`;
-            
-            // Portfolio Section
-            document.querySelector('.portfolio-section h2').textContent = trans.portfolioTitle;
-            document.querySelector('.portfolio-section p').textContent = trans.portfolioDesc;
-            document.querySelector('.portfolio-btn').innerHTML = `${trans.portfolioBtn} <i class="fas fa-arrow-right"></i>`;
-        }
-
-        // Language Toggle
-        const languageToggle = document.getElementById('languageToggle');
-        languageToggle.addEventListener('click', () => {
-            currentLanguage = currentLanguage === 'en' ? 'ar' : 'en';
-            document.documentElement.lang = currentLanguage;
-            
-            if (currentLanguage === 'ar') {
-                document.body.style.direction = 'rtl';
-                document.body.classList.add('rtl');
-                languageToggle.textContent = 'EN';
-                localStorage.setItem('language', 'ar');
-            } else {
-                document.body.style.direction = 'ltr';
-                document.body.classList.remove('rtl');
-                languageToggle.textContent = 'AR';
-                localStorage.setItem('language', 'en');
-            }
-            
-            updateContent(currentLanguage);
-        });
-
-        // Check for saved language preference
-        const savedLanguage = localStorage.getItem('language');
-        if (savedLanguage) {
-            currentLanguage = savedLanguage;
-            document.documentElement.lang = currentLanguage;
-            
-            if (currentLanguage === 'ar') {
-                document.body.style.direction = 'rtl';
-                document.body.classList.add('rtl');
-                languageToggle.textContent = 'EN';
-            } else {
-                languageToggle.textContent = 'AR';
-            }
-            
-            updateContent(currentLanguage);
-        }
 
         // Scroll Progress Bar
         function updateScrollProgress() {
@@ -1163,23 +817,6 @@
 
         // Initialize on page load
         window.addEventListener('load', () => {
-            // Check for saved language preference first
-            const savedLanguage = localStorage.getItem('language');
-            if (savedLanguage) {
-                currentLanguage = savedLanguage;
-                document.documentElement.lang = currentLanguage;
-                
-                if (currentLanguage === 'ar') {
-                    document.body.style.direction = 'rtl';
-                    document.body.classList.add('rtl');
-                    languageToggle.textContent = 'EN';
-                } else {
-                    languageToggle.textContent = 'AR';
-                }
-                
-                updateContent(currentLanguage);
-            }
-            
             animateOnScroll();
             smoothScroll();
             
@@ -1218,5 +855,4 @@
         setTimeout(typeWriter, 1000);
     </script>
 </body>
-
 </html>
