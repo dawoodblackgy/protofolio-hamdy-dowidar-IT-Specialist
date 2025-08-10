@@ -1618,87 +1618,7 @@
             </div>
         </section>
 
-        <!-- Music Player Section -->
-        <section class="section" id="music-section">
-            <h2 class="section-title">Audio Portfolio</h2>
-            <div class="music-player-container">
-                <!-- Music Player Box -->
-                <div class="player box music-player-bg">
-                    <div class="details">
-                        <div class="now-playing">PLAYING x OF y</div>
-                        <div class="track-art"></div>
-                        <div class="track-name">Track Name</div>
-                        <div class="track-artist">Track Artist</div>
-                    </div>
-
-                    <div class="buttons">
-                        <div class="repeat-track" onclick="repeatTrack()" title="Repeat">
-                            <i class="fas fa-redo"></i>
-                        </div>
-                        
-                        <div class="prev-track" onclick="prevTrack()" title="Previous">
-                            <i class="fa fa-step-backward fa-2x"></i>
-                        </div>
-                        
-                        <div class="playpause-track" onclick="playpauseTrack()" title="Play/Pause">
-                            <i class="fa fa-play-circle fa-3x"></i>
-                        </div>
-                        
-                        <div class="next-track" onclick="nextTrack()" title="Next">
-                            <i class="fa fa-step-forward fa-2x"></i>
-                        </div>
-                        
-                        <div class="shuffle-track" onclick="shuffleTrack()" title="Shuffle">
-                            <i class="fas fa-random"></i>
-                        </div>
-                    </div>
-
-                    <div class="slider_container">
-                        <div class="current-time">00:00</div>
-                        <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
-                        <div class="total-duration">00:00</div>
-                    </div>
-
-                    <div class="slider_container">
-                        <i class="fa fa-volume-down" onclick="muteTrack()" title="Mute"></i>
-                        <input type="range" min="0" max="100" value="80" class="volume_slider" onchange="setVolume()">
-                        <i class="fa fa-volume-up"></i>
-                    </div>
-                </div>
-
-                <!-- Playlist Box -->
-                <div class="main box music-player-bg">
-                    <div class="playlist" id="playlist">
-                        <div class="loader" onclick="song1OnClick()">
-                            <div class="song">
-                                <div class="name">DR Eman safia</div>
-                                <div class="artist">تعديل صوتي</div>
-                            </div>
-                            <div class="album-cover" style="background-image: url('1.png');"></div>
-                            <div class="play"><i class="fas fa-play"></i></div>
-                        </div>
-                        
-                        <div class="loader" onclick="song2OnClick()">
-                            <div class="song">
-                                <div class="name">classy</div>
-                                <div class="artist">voice over</div>
-                            </div>
-                            <div class="album-cover" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD51K10_EChcNcWk-sgft5847KcEV0Eoa7xQ&s');"></div>
-                            <div class="play"><i class="fas fa-play"></i></div>
-                        </div>
-                        
-                        <div class="loader" onclick="song3OnClick()">
-                            <div class="song">
-                                <div class="name">مركز نفسية الشامل</div>
-                                <div class="artist">voice over</div>
-                            </div>
-                            <div class="album-cover" style="background-image: url('https://scontent.fcai21-2.fna.fbcdn.net/v/t39.30808-6/306084393_102795022583749_6419419961815829827_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeFTTCUZ23s_NGGsq3woUPCrFMUBy3r7z28UxQHLevvPb7Sh75PTCuevU-mcFVOXnzDq0fxpLVJxm3j3YL-nAl1j&_nc_ohc=JGj01Hl3iZ8Q7kNvwHUkrJ9&_nc_oc=AdnRrTjRhZ19BTSzG0iqDLqTl8VZjM2mzXFmM7hWGsEBmO2sb2he5eIQp0osqo_wTHE&_nc_zt=23&_nc_ht=scontent.fcai21-2.fna&_nc_gid=4_IB0efj1stxqpu-qARq0A&oh=00_AfV1pew-y3ODLxEbA9fhOXLcJLKQLr0WZ7duUv_R2-SWOA&oe=68970ABA');"></div>
-                            <div class="play"><i class="fas fa-play"></i></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- Music Player Section - Removed -->
         
         <!-- Clients Section -->
         <section class="section" id="clients-section">
@@ -1949,6 +1869,8 @@
 
         // Create new audio element
         let curr_track = document.createElement("audio");
+        curr_track.preload = "auto";
+        curr_track.volume = 0.8;
 
         // Define the tracks
         let track_list = [
@@ -2008,20 +1930,36 @@
         loadTrack(track_index);
 
         function playpauseTrack() {
+            console.log('playpauseTrack called, isPlaying:', isPlaying);
             if (!isPlaying) playTrack();
             else pauseTrack();
         }
 
         function playTrack() {
-            curr_track.play();
-            isPlaying = true;
-            playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-3x"></i>';
+            curr_track.play().then(() => {
+                isPlaying = true;
+                playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-3x"></i>';
+                // Update main play button icon if exists
+                const mainPlayIcon = document.getElementById('mainPlayIcon');
+                if (mainPlayIcon) {
+                    mainPlayIcon.classList.remove('fa-play');
+                    mainPlayIcon.classList.add('fa-pause');
+                }
+            }).catch(error => {
+                console.error('Error playing audio:', error);
+            });
         }
 
         function pauseTrack() {
             curr_track.pause();
             isPlaying = false;
             playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-3x"></i>';
+            // Update main play button icon if exists
+            const mainPlayIcon = document.getElementById('mainPlayIcon');
+            if (mainPlayIcon) {
+                mainPlayIcon.classList.remove('fa-pause');
+                mainPlayIcon.classList.add('fa-play');
+            }
         }
 
         function nextTrack() {
